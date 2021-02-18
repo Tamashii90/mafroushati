@@ -1,0 +1,114 @@
+header {
+  a:hover,
+  span.nav-link:hover {
+    text-shadow: 0 0 2px brown;
+    transition: text-shadow 0.4s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.navbar-end svg:hover {
+  fill: brown;
+}
+
+.dropdown-menu {
+  display: block !important;
+  transition: opacity 0.4s ease-in-out;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.navbar-nav {
+  padding: 0.8em 0em;
+  .nav-link {
+    font-size: 0.9em;
+    color: black !important;
+  }
+  .nav-item .nav-link {
+    padding: 0 1.3em;
+    font-size: 20px;
+  }
+  ul {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar-end {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .navbar-collapse {
+    align-self: center;
+    text-align: center;
+  }
+  .navbar-toggler {
+    align-self: center;
+  }
+  .dropdown-menu {
+    min-width: 33em;
+    position: relative;
+  }
+}
+@media (min-width: 1200px) {
+  .dropdown-menu {
+    min-width: 38em;
+    left: 15% !important;
+    top: 90% !important;
+    position: absolute !important;
+  }
+}
+
+// @media (min-width: 360px) {
+//   .dropdown-menu {
+//     width: 7em;
+//     left: 35vw !important;
+//     top: -25% !important;
+//     position: absolute !important;
+//   }
+// }
+
+// @media (min-width: 383px) {
+//   .dropdown-menu {
+//     width: 10em;
+//     left: 33vw !important;
+//     top: -25% !important;
+//     position: absolute !important;
+//   }
+// }
+// @media (min-width: 576px) {
+//   .dropdown-menu {
+//     min-width: 23em;
+//     left: 26% !important;
+//     top: -25% !important;
+//     position: absolute !important;
+//   }
+// }
+
+// @media (min-width: 768px) {
+//   .dropdown-menu {
+//     min-width: 33em;
+//     left: 19% !important;
+//     top: 0% !important;
+//     position: absolute !important;
+//   }
+// }
+
+// @media (min-width: 992px) {
+//   .dropdown-menu {
+//     min-width: 33em;
+//     left: 14% !important;
+//     top: 0% !important;
+//     position: absolute !important;
+//   }
+// }

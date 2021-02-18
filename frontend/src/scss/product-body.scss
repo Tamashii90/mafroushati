@@ -1,0 +1,29 @@
+/* Hide arrows for input[type=number] */
+
+// Chrome, Safari, Edge, Opera
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+// Firefox
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* end of Hide arrows for input[type=number] */
+.placeholder-animated {
+  animation: react-placeholder-pulse 1s infinite;
+}
+
+@keyframes react-placeholder-pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
