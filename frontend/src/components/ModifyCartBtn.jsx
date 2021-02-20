@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import InfoContext from "../context/InfoContext";
 
-export default function ModifyCartBtn({ product, add, dispatch, setInfo }) {
+export default function ModifyCartBtn({ product, add, dispatch }) {
+  // Ideally, I would want to have a separate setInfo (snackbar) for
+  // each product, but for some reason the FeatuerdProds carousel
+  // would mess up the styling of its snackbar so I'm just using
+  // the header's snackbar (global state via context api)
+  const [, setInfo] = useContext(InfoContext);
   const { _id, price_per_piece, quantity_in_stock } = product;
   const addProduct = () => {
     dispatch({ type: "addProduct", payload: { _id, price_per_piece } });

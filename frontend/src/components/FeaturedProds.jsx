@@ -5,11 +5,8 @@ import "../scss/slick.css";
 import Slider from "react-slick";
 import Placeholder from "./Placeholder/ProductCarousel";
 import useSWR from "swr";
-import MySnackbar from "./MySnackbar";
 
 export default function FeaturedProds() {
-  console.log("render featured !");
-  const [info, setInfo] = useState({ message: "", severity: "info" });
   const { data: prods } = useSWR("/products/featured");
   const settings = {
     dots: true,
@@ -49,16 +46,11 @@ export default function FeaturedProds() {
 
   return (
     <div className="container-lg">
-      {info.message && <MySnackbar info={info} setInfo={setInfo} />}
       <h1>Featured</h1>
       <Slider {...settings}>
         {prods.map(product => (
           <div key={product._id} className="px-3">
-            <ProductCard
-              product={product}
-              key={product._id}
-              setInfo={setInfo}
-            />
+            <ProductCard product={product} key={product._id} />
           </div>
         ))}
       </Slider>

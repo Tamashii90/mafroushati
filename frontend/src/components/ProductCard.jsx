@@ -5,8 +5,7 @@ import LazyLoad from "react-lazyload";
 import CartContext from "../context/CartContext";
 import ModifyCartBtn from "./ModifyCartBtn";
 
-export default function ProductCard({ product, setInfo }) {
-  console.log("render product card");
+export default function ProductCard({ product }) {
   const [cart, dispatch] = useContext(CartContext);
   const alrdyInCart = () => {
     return cart.products.some(existingProd => existingProd._id === product._id);
@@ -40,19 +39,9 @@ export default function ProductCard({ product, setInfo }) {
         </p>
         <div className="col-9 btn-group mb-4">
           {alrdyInCart() ? (
-            <ModifyCartBtn
-              product={product}
-              dispatch={dispatch}
-              add={false}
-              setInfo={setInfo}
-            />
+            <ModifyCartBtn product={product} dispatch={dispatch} add={false} />
           ) : (
-            <ModifyCartBtn
-              product={product}
-              dispatch={dispatch}
-              add={true}
-              setInfo={setInfo}
-            />
+            <ModifyCartBtn product={product} dispatch={dispatch} add={true} />
           )}
           <Link to={`/products/${product._id}`} className="btn-secondary btn">
             View Details
