@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import DropMenu from "./DropMenu";
 import SubMenu from "./SubMenu";
 import "../scss/header.scss";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import CartContext from "../context/CartContext";
 import InfoContext from "../context/InfoContext";
@@ -12,6 +12,7 @@ import { fetcher } from "../utils";
 import { FaShoppingCart } from "react-icons/fa";
 
 export default function Header() {
+  const history = useHistory();
   const [cart] = useContext(CartContext);
   const [info, setInfo] = useContext(InfoContext);
   const [auth, setAuth] = useContext(AuthContext);
@@ -20,6 +21,7 @@ export default function Header() {
     try {
       const response = await fetcher("/logout", { method: "POST" });
       setAuth(null);
+      history.replace("/");
       setInfo({ message: response.message, severity: "success" });
     } catch (err) {
       setInfo({ message: err.message, severity: "error" });
