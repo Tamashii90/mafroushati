@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { fetcher } from "../../utils";
 import { mutate } from "swr";
+import InfoContext from "../../context/InfoContext";
 
 const WriteReview = ({ prodId }) => {
+  const [, setInfo] = useContext(InfoContext);
   const submitReview = async e => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -15,15 +17,7 @@ const WriteReview = ({ prodId }) => {
       mutate(`/products/${prodId}`);
       e.target.reset();
     } catch (err) {
-      if (err.body) {
-        if (
-          err.body.prodId?.properties.type === "unique" &&
-          err.body.user?.properties.type === "unique"
-        ) {
-          return console.log("You already have a review for this product.");
-        }
-      }
-      console.log(err.message);
+      setInfo({ message: err.message, severity: "error" });
     }
   };
   return (

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import WriteReview from "./WriteReview";
 import Review from "../Review";
 
 const Reviews = ({ product, auth }) => {
+  const reviewExists = () => {
+    return product.reviews.some(review => review.user === auth.username);
+  };
   return (
     <div className="mt-4">
       <h3>Customer Reviews</h3>
@@ -19,7 +22,7 @@ const Reviews = ({ product, auth }) => {
           <span>
             <Link to="/login">Log in</Link> to write a review.
           </span>
-        ) : (
+        ) : reviewExists() ? null : (
           <WriteReview prodId={product._id} />
         )}
       </div>
