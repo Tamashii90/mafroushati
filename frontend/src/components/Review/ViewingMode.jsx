@@ -3,10 +3,11 @@ import { fetcher } from "../../utils";
 import AuthContext from "../../context/AuthContext";
 import { mutate } from "swr";
 import MySnackBar from "../MySnackbar";
+import InfoContext from "../../context/InfoContext";
 
 const ViewingMode = ({ review, setEditMode, prodId }) => {
   const [auth] = useContext(AuthContext);
-  const [info, setInfo] = useState({ message: "", severity: "info" });
+  const [info, setInfo] = useContext(InfoContext);
   const { createdAt, updatedAt, user, content, featured } = review;
   const createDate = new Date(createdAt);
   const editDate = new Date(updatedAt);
@@ -27,7 +28,6 @@ const ViewingMode = ({ review, setEditMode, prodId }) => {
   };
   return (
     <div className="col-12 media mt-4">
-      {info.message && <MySnackBar info={info} setInfo={setInfo} />}
       <div className="media-body row">
         <h3 className="col-6">{user}</h3>
         <p className="col-6 text-right">

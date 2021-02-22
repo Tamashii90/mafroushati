@@ -2,10 +2,10 @@ import React, { useContext, useState } from "react";
 import { mutate } from "swr";
 import { fetcher } from "../../utils";
 import AuthContext from "../../context/AuthContext";
-import MySnackBar from "../MySnackbar";
+import InfoContext from "../../context/InfoContext";
 
 const EditingMode = ({ setEditMode, review, prodId }) => {
-  const [info, setInfo] = useState({ message: "", severity: "info" });
+  const [, setInfo] = useContext(InfoContext);
   const [auth] = useContext(AuthContext);
   const submitReview = async e => {
     e.preventDefault();
@@ -18,13 +18,11 @@ const EditingMode = ({ setEditMode, review, prodId }) => {
       setEditMode(false);
       mutate(`/products/${prodId}`);
     } catch (err) {
-      // eslint-disable-next-line no-console
       setInfo({ message: err.message, severity: "error" });
     }
   };
   return (
     <form className="my-4" onSubmit={submitReview}>
-      {info.message && <MySnackBar info={info} setInfo={setInfo} />}
       <div className="form-group">
         <textarea
           className="form-control col-7"
