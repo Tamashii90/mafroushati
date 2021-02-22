@@ -38,28 +38,28 @@ export default function Header() {
     <>
       {info.message && <MySnackbar info={info} setInfo={setInfo} />}
       <nav className="navbar navbar-expand-xl navbar-light">
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          onClick={() => setCollapse(!collapse)}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        <div className="navbar-start my-3">
+          <Link className="navbar-brand mr-0" to="/">
+            Home
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            onClick={() => setCollapse(!collapse)}
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
         <div
           className={(collapse ? "collapse" : "") + " navbar-collapse ml-xl-5"}
           id="navbarNav"
         >
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link mb-3" to="/">
-                Home
-              </Link>
-            </li>
             <DropMenu title="Living Room">
               <SubMenu title="Sofa">
                 <Link to="/category/sofa_sets">Sofa Sets</Link>
