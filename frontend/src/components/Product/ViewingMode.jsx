@@ -4,7 +4,7 @@ import { fetcher } from "../../utils";
 import CartContext from "../../context/CartContext";
 import ModifyCartBtn from "../ModifyCartBtn";
 
-const ViewingMode = ({ product, admin, setEdit, setInfo }) => {
+const ViewingMode = ({ product, admin, setEdit }) => {
   const history = useHistory();
   const [cart, dispatch] = useContext(CartContext);
   const alrdyInCart = () => {
@@ -55,19 +55,9 @@ const ViewingMode = ({ product, admin, setEdit, setInfo }) => {
             )}
           </p>
           {alrdyInCart() ? (
-            <ModifyCartBtn
-              product={product}
-              dispatch={dispatch}
-              add={false}
-              setInfo={setInfo}
-            />
+            <ModifyCartBtn product={product} dispatch={dispatch} add={false} />
           ) : (
-            <ModifyCartBtn
-              product={product}
-              dispatch={dispatch}
-              add={true}
-              setInfo={setInfo}
-            />
+            <ModifyCartBtn product={product} dispatch={dispatch} add={true} />
           )}
           {admin && (
             <div className="mt-3">
