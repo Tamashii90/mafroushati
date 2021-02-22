@@ -5,10 +5,12 @@ import AuthContext from "../../context/AuthContext";
 import InfoContext from "../../context/InfoContext";
 
 const EditingMode = ({ setEditMode, review, prodId }) => {
+  const [loading, setLoading] = useState(false);
   const [, setInfo] = useContext(InfoContext);
   const [auth] = useContext(AuthContext);
   const submitReview = async e => {
     e.preventDefault();
+    setLoading(true);
     const form = new FormData(e.target);
     try {
       await fetcher(`/review/${review._id}`, {
@@ -16,8 +18,10 @@ const EditingMode = ({ setEditMode, review, prodId }) => {
         body: new URLSearchParams(form)
       });
       setEditMode(false);
+      setLoading(false);
       mutate(`/products/${prodId}`);
     } catch (err) {
+      setLoading(false);
       setInfo({ message: err.message, severity: "error" });
     }
   };
@@ -48,6 +52,7 @@ const EditingMode = ({ setEditMode, review, prodId }) => {
       )}
       <button type="submit" className="btn btn-warning">
         Submit Changes
+        {loading && <span className="ml-2 spinner-grow spinner-grow-sm"></span>}
       </button>
       <button
         type="button"

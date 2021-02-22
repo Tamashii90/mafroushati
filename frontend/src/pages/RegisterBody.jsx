@@ -1,47 +1,59 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import { fetcher } from "../utils";
 
 const RegisterPage = () => {
-    const [error, setError] = useState({});
-    const [auth, setAuth] = useContext(AuthContext);
-    const register = async (e) => {
-        e.preventDefault();
-        const form = new FormData(e.target);
-        try {
-            const response = await fetch("/register/test", {
-                method: 'POST',
-                body: new URLSearchParams(form)
-            }).then(res => res.json());
-            if (response.error) {
-                return setError(response.body);
-            }
-            setAuth(response.body);
-        } catch (err) {
-            setError({
-                network: {
-                    messge: "Netowork error."
-                }
-            })
-        }
-    };
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState({});
+  const [auth, setAuth] = useContext(AuthContext);
+  const register = async e => {
+    setLoading(true);
+    e.preventDefault();
+    const form = new FormData(e.target);
+    try {
+      const response = await fetcher("/register/test", {
+        method: "POST",
+        body: new URLSearchParams(form)
+      });
+      setAuth(response.body);
+    } catch (err) {
+      if (err.body) setError(err.body);
+      else setInfo({ message: err.message, severity: "error" });
+    }
+    setLoading(false);
+  };
 
-    if (auth) return <Redirect to="/" />;
-    return (
-        <div>
-            {error.network?.message}
-            <form onSubmit={register}>
-                <input type="text" name="username" placeholder="Username" /><br />
-                {error.username?.message}<br />
-                <input type="password" name="password" placeholder="Password" /><br />
-                {error.password?.message}<br />
-                <input type="password" name="pwdConfirm" placeholder="Repeat your password" /><br />
-                {error.pwdConfirm?.message}<br />
-                <button type="submit">Register</button>
-            </form>
-            <a href="/login">Log In</a>
-        </div>
-    );
-}
+  if (auth) return <Redirect to="/" />;
+  return (
+    <div>
+      <form onSubmit={register}>
+        <input type="text" name="username" placeholder="Username" />
+        <br />
+        {error.username?.message}
+        <br />
+        <input type="password" name="password" placeholder="Password" />
+        <br />
+        {error.password?.message}
+        <br />
+        <input
+          type="password"
+          name="pwdConfirm"
+          placeholder="Repeat your password"
+        />
+        <br />
+        {error.pwdConfirm?.message}
+        <br />
+        <button type="submit">
+          Register
+          {loading && (
+            <span className="ml-2 spinner-grow spinner-grow-sm"></span>
+          )}
+        </button>
+      </form>
+      <Link to="/login">Log In</Link>
+    </div>
+  );
+};
 
 export default RegisterPage;

@@ -17,7 +17,9 @@ export default function Header() {
   const [info, setInfo] = useContext(InfoContext);
   const [auth, setAuth] = useContext(AuthContext);
   const [collapse, setCollapse] = useState(true);
+  const [loading, setLoading] = useState(false);
   const logOut = async () => {
+    setLoading(true);
     try {
       const response = await fetcher("/logout", { method: "POST" });
       setAuth(null);
@@ -26,6 +28,7 @@ export default function Header() {
     } catch (err) {
       setInfo({ message: err.message, severity: "error" });
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -121,7 +124,12 @@ export default function Header() {
           {auth ? (
             <div>
               <span>{auth.username}</span>
-              <button onClick={logOut}>Log Out</button>
+              <button onClick={logOut}>
+                Log Out
+                {loading && (
+                  <span className="ml-2 spinner-grow spinner-grow-sm"></span>
+                )}
+              </button>
             </div>
           ) : (
             <div>
