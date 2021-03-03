@@ -87,6 +87,11 @@ const ProductSchema = new mongoose.Schema(
   }
 );
 
+ProductSchema.index(
+  { name: "text", category: "text" },
+  { name: "search_index" }
+);
+
 ProductSchema.statics.calcTotal = function ({ productsInCart, productsInDb }) {
   const totalsArray = productsInCart.map(prodInCart => {
     const matchingPrice = productsInDb.find(
