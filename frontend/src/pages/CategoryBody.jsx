@@ -27,7 +27,6 @@ export default function CategoryPage() {
         {!products && <Placeholder />}
         {products && (
           <>
-            {!products.length && <div className="col-12">No products.</div>}
             <ProductGallery products={products} setInfo={setInfo} />
           </>
         )}

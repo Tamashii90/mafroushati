@@ -11,6 +11,7 @@ import RegisterBody from "./pages/RegisterBody";
 import AuthContext from "./context/AuthContext";
 import Helmet from "react-helmet";
 import { fetcher } from "./utils";
+import SearchBody from "./pages/SearchBody";
 
 export default function App() {
   const [, setAuth] = useContext(AuthContext);
@@ -39,6 +40,7 @@ export default function App() {
           <Route exact path="/cart" component={CartBody} />
           <Route exact path="/login" component={LoginBody} />
           <Route exact path="/register" component={RegisterBody} />
+          <Route exact path="/search" component={SearchBody} />
         </Switch>
       </main>
     </>

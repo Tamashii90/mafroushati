@@ -30,6 +30,14 @@ export default function Header() {
     }
     setLoading(false);
   };
+  const submitSearch = async e => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const q = form.get("q");
+    if (!q) return;
+    history.replace(`/search?q=${q}`);
+    e.target.reset();
+  };
 
   useEffect(() => {
     setCollapse(true); // reset on page transitions
@@ -120,34 +128,43 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <div className="navbar-end my-3">
-          {auth ? (
-            <div>
-              <span>{auth.username}</span>
-              <button onClick={logOut}>
-                Log Out
-                {loading && (
-                  <span className="ml-2 spinner-grow spinner-grow-sm"></span>
-                )}
-              </button>
+        <div className="navbar-end">
+          <form onSubmit={submitSearch}>
+            <input type="text" name="q" maxLength="50" />
+            <input type="submit" value="Search" />
+          </form>
+          <div
+            className="position-relative align-self-end d-flex flex-row"
+            style={{ top: "20px" }}
+          >
+            {auth ? (
+              <div>
+                <span>{auth.username}</span>
+                <button onClick={logOut}>
+                  Log Out
+                  {loading && (
+                    <span className="ml-2 spinner-grow spinner-grow-sm"></span>
+                  )}
+                </button>
+              </div>
+            ) : (
+              <div>
+                <Link to="/login">Log in</Link>
+                {" | "}
+                <Link to="/register">Register</Link>
+              </div>
+            )}
+            <div className="ml-2">
+              <Link to="/cart">
+                <FaShoppingCart size="25px" className="ml-xl-1" color="red" />
+              </Link>
+              <span
+                className="badge badge-secondary"
+                style={{ position: "relative", bottom: "10px" }}
+              >
+                {cart.products.length}
+              </span>
             </div>
-          ) : (
-            <div>
-              <Link to="/login">Log in</Link>
-              {" | "}
-              <Link to="/register">Register</Link>
-            </div>
-          )}
-          <div className="mt-xl-3">
-            <Link to="/cart">
-              <FaShoppingCart size="25px" className="ml-xl-1" color="red" />
-            </Link>
-            <span
-              className="badge badge-secondary"
-              style={{ position: "relative", bottom: "10px" }}
-            >
-              {cart.products.length}
-            </span>
           </div>
         </div>
       </nav>

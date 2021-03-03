@@ -8,6 +8,10 @@ header {
   }
 }
 
+.navbar {
+  margin-bottom: calc(2rem + 5px);
+}
+
 .navbar-end svg:hover {
   fill: brown;
 }
@@ -42,6 +46,13 @@ header {
   }
 }
 
+.navbar-end {
+  position: relative;
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 1200px) {
   .navbar {
     flex-direction: column;
@@ -54,8 +65,12 @@ header {
   }
   .navbar-end {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    div.position-relative {
+      top: 0 !important;
+    }
   }
   .navbar-collapse {
     align-self: center;

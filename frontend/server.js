@@ -39,6 +39,9 @@ const server = new ParcelProxyServer({
     },
     "/cart/checkout": {
       target: "http://localhost:3000"
+    },
+    "/search": {
+      target: "http://localhost:3000"
     }
   }
 });

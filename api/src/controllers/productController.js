@@ -18,9 +18,8 @@ exports.get_recent = async (req, res) => {
   try {
     const products = await Product.find(
       {},
-      {},
+      { "__v": 0, "featured": 0, "updatedAt": 0, "reviews": 0 },
       {
-        projection: { "__v": 0, "featured": 0, "updatedAt": 0, "reviews": 0 },
         lean: true,
         sort: { "createdAt": -1 },
         limit: 15
@@ -35,9 +34,8 @@ exports.get_featured = async (req, res) => {
   try {
     const products = await Product.find(
       { featured: true },
-      {},
+      { "__v": 0, "featured": 0, "updatedAt": 0, "reviews": 0 },
       {
-        projection: { "__v": 0, "featured": 0, "updatedAt": 0, "reviews": 0 },
         lean: true,
         limit: 10
       }
@@ -52,9 +50,30 @@ exports.get_category = async (req, res) => {
   try {
     const products = await Product.find(
       { category },
-      {},
+      { "__v": 0, "featured": 0, "updatedAt": 0, "reviews": 0 },
       {
-        projection: { "__v": 0, "featured": 0, "updatedAt": 0, "reviews": 0 },
+        lean: true,
+        limit: 9
+      }
+    );
+    res.send(products);
+  } catch (err) {
+    res.status(500).send();
+  }
+};
+exports.get_search = async (req, res) => {
+  const { q } = req.query;
+  try {
+    const products = await Product.find(
+      { $text: { $search: q } },
+      {
+        featured: 0,
+        reviews: 0,
+        updatedAt: 0,
+        __v: 0
+      },
+      {
+        sort: { score: { $meta: "textScore" } },
         lean: true,
         limit: 9
       }
@@ -85,10 +104,11 @@ exports.post_product = async (req, res) => {
 exports.patch_product = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
-    if (!product)
+    if (!product) {
       return res
         .status(400)
         .send({ error: true, message: "Product not found." });
+    }
     if (req.file) {
       const img_url = await imgur_upload(req.file);
       Object.assign(product, { ...req.body, img_url });
@@ -108,10 +128,11 @@ exports.patch_product = async (req, res) => {
 exports.delete_product = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
-    if (!product)
+    if (!product) {
       return res
         .status(400)
         .send({ error: true, message: "Product not found." });
+    }
     const transacSession = await Product.db.startSession();
     await transacSession.withTransaction(() => {
       const removeProduct = product.remove({ session: transacSession });
