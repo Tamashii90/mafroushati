@@ -11,7 +11,7 @@ export default function CategoryPage() {
   const { category } = useParams();
   const [info, setInfo] = useState({ message: "", severity: "info" });
   const categoryName = category
-    .split("_")
+    .split("+")
     .map(word => word[0].toUpperCase() + word.slice(1))
     .join(" ")
     .replace("Tv", "TV");

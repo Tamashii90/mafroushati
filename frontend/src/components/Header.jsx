@@ -62,18 +62,18 @@ export default function Header() {
           <ul className="navbar-nav">
             <DropMenu title="Living Room">
               <SubMenu title="Sofa">
-                <Link to="/category/sofa_sets">Sofa Sets</Link>
+                <Link to="/category/sofa+sets">Sofa Sets</Link>
               </SubMenu>
               <SubMenu title="Chairs">
-                <Link to="/category/lounge_chairs">Lounge Chairs</Link>
+                <Link to="/category/lounge+chairs">Lounge Chairs</Link>
               </SubMenu>
               <SubMenu title="Tables">
-                <Link to="/category/coffee_tables">Coffee Tables</Link>
+                <Link to="/category/coffee+tables">Coffee Tables</Link>
               </SubMenu>
               <SubMenu title="Storage">
                 <Link to="/category/bookshelves">Bookshelves</Link>
-                <Link to="/category/tv_units">TV Units</Link>
-                <Link to="/category/shoe_racks">Shoe Racks</Link>
+                <Link to="/category/tv+units">TV Units</Link>
+                <Link to="/category/shoe+racks">Shoe Racks</Link>
               </SubMenu>
             </DropMenu>
             <DropMenu title="Bedroom">
@@ -90,27 +90,27 @@ export default function Header() {
             </DropMenu>
             <DropMenu title="Dining">
               <SubMenu title="Tables">
-                <Link to="/category/dining_tables">Dining Tables</Link>
+                <Link to="/category/dining+tables">Dining Tables</Link>
               </SubMenu>
               <SubMenu title="Chairs">
-                <Link to="/category/dining_chairs">Dining Chairs</Link>
+                <Link to="/category/dining+chairs">Dining Chairs</Link>
               </SubMenu>
               <SubMenu title="Storage">
-                <Link to="/category/kitchen_cabinets">Kitchen Cabinets</Link>
+                <Link to="/category/kitchen+cabinets">Kitchen Cabinets</Link>
               </SubMenu>
             </DropMenu>
             <DropMenu title="Storage">
               <SubMenu title="Living Room">
                 <Link to="/category/bookshelves">Bookshelves</Link>
-                <Link to="/category/tv_units">TV Units</Link>
-                <Link to="/category/shoe_racks">Shoe Racks</Link>
+                <Link to="/category/tv+units">TV Units</Link>
+                <Link to="/category/shoe+racks">Shoe Racks</Link>
               </SubMenu>
               <SubMenu title="Bedroom">
                 <Link to="/category/bookshelves">Bookshelves</Link>
                 <Link to="/category/cupboards">Cupboards</Link>
               </SubMenu>
               <SubMenu title="Dining">
-                <Link to="/category/kitchen_cabinets">Kitchen Cabinets</Link>
+                <Link to="/category/kitchen+cabinets">Kitchen Cabinets</Link>
               </SubMenu>
             </DropMenu>
             <li className="nav-item">

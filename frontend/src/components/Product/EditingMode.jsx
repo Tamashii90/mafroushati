@@ -13,7 +13,7 @@ const EditingMode = ({ setEdit, product }) => {
     setLoading(true);
     const form = new FormData(e.target);
     try {
-      const res = await fetcher(`/products/${product._id}`, {
+      await fetcher(`/products/${product._id}`, {
         method: "PATCH",
         body: form
       });
@@ -97,17 +97,17 @@ const EditingMode = ({ setEdit, product }) => {
               defaultValue={product.category}
             >
               <option value="bookshelves">Bookshelves</option>
-              <option value="coffee_tables">Coffe Tables</option>
+              <option value="coffee+tables">Coffe Tables</option>
               <option value="cupboards">Cupboards</option>
-              <option value="dining_chairs">Dining Chairs</option>
-              <option value="dining_tables">Dining Tables</option>
+              <option value="dining+chairs">Dining Chairs</option>
+              <option value="dining+tables">Dining Tables</option>
               <option value="beds">Beds</option>
-              <option value="kitchen_cabinets">Kitchen Cabinets</option>
-              <option value="lounge_chairs">Lounge Chairs</option>
+              <option value="kitchen+cabinets">Kitchen Cabinets</option>
+              <option value="lounge+chairs">Lounge Chairs</option>
               <option value="mattresses">Mattresses</option>
-              <option value="shoe_racks">Shoe Racks</option>
-              <option value="sofa_sets">Sofa Sets</option>
-              <option value="tv_units">TV Units</option>
+              <option value="shoe+racks">Shoe Racks</option>
+              <option value="sofa+sets">Sofa Sets</option>
+              <option value="tv+units">TV Units</option>
             </select>
             <small className="form-text text-danger">
               {errors.category?.message}

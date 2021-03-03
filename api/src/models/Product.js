@@ -55,17 +55,17 @@ const ProductSchema = new mongoose.Schema(
       required: "Category is required.",
       enum: [
         "bookshelves",
-        "coffee_tables",
+        "coffee+tables",
         "cupboards",
-        "dining_chairs",
-        "dining_tables",
+        "dining+chairs",
+        "dining+tables",
         "beds",
-        "kitchen_cabinets",
-        "lounge_chairs",
+        "kitchen+cabinets",
+        "lounge+chairs",
         "mattresses",
-        "shoe_racks",
-        "sofa_sets",
-        "tv_units"
+        "shoe+racks",
+        "sofa+sets",
+        "tv+units"
       ]
     },
     featured: {

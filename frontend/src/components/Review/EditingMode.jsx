@@ -17,8 +17,8 @@ const EditingMode = ({ setEditMode, review, prodId }) => {
         method: "PATCH",
         body: new URLSearchParams(form)
       });
-      setEditMode(false);
       setLoading(false);
+      setEditMode(false);
       mutate(`/products/${prodId}`);
     } catch (err) {
       setLoading(false);
