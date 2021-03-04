@@ -36,7 +36,7 @@ export default function FeaturedProds() {
 
   if (!prods)
     return (
-      <div className="container-lg">
+      <div className="container">
         <h1>Featured</h1>
         <div className="row justify-content-center justify-content-md-start">
           <Placeholder />
@@ -45,7 +45,7 @@ export default function FeaturedProds() {
     );
 
   return (
-    <div className="container-lg">
+    <div className="container">
       <h1>Featured</h1>
       <Slider {...settings}>
         {prods.map(product => (

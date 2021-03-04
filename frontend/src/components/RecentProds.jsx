@@ -8,7 +8,7 @@ export default function RecentProds() {
   const { data: prods, error } = useSWR("/products/recent", fetcher);
   return (
     <>
-      <div className="container-lg">
+      <div className="container">
         <h1>Recently Added</h1>
         <div className="row justify-content-center justify-content-md-start">
           {!prods && <Placeholder />}

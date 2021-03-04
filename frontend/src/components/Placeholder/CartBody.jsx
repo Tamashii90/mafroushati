@@ -4,7 +4,7 @@ import CartItemPlaceholder from "./CartItemBig";
 
 export default function Placeholder() {
   return (
-    <div className="container-lg">
+    <div className="container">
       <div className="row">
         <div className="col-12">
           <div className="row my-3">

@@ -24,7 +24,7 @@ export default function ProductPage() {
   }, [error]);
   if (error)
     return (
-      <div className="container-lg">
+      <div className="container">
         <Helmet>
           <title>Error</title>
         </Helmet>
@@ -34,12 +34,12 @@ export default function ProductPage() {
 
   if (!product)
     return (
-      <div className="container-lg">
+      <div className="container">
         <Placeholder />
       </div>
     );
   return (
-    <div className="container-lg">
+    <div className="container">
       <Helmet>
         <title>{product.name}</title>
       </Helmet>

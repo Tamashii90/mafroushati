@@ -72,7 +72,7 @@ export default function CartBody() {
 
   if (!cart.products.length) {
     return (
-      <div className="container-lg">
+      <div className="container">
         <h4 className="text-center">Your Cart is Empty.</h4>
       </div>
     );
@@ -81,7 +81,7 @@ export default function CartBody() {
   if (!products) return <Placeholder />;
 
   return (
-    <div className="container-lg">
+    <div className="container">
       <div className="row">
         <div className="col-12">
           <div className="row my-3">

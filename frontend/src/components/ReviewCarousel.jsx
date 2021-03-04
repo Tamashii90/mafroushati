@@ -32,7 +32,7 @@ const ReviewCarousel = () => {
   };
 
   return (
-    <div className="container-lg">
+    <div className="container">
       <h3>What Our Customers Say</h3>
       {!reviews && (
         <div className="row justify-content-center justify-content-md-start">
