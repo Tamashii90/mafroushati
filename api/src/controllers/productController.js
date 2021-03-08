@@ -46,17 +46,27 @@ exports.get_featured = async (req, res) => {
   }
 };
 exports.get_category = async (req, res) => {
-  const category = req.params.category;
+  const { category } = req.params;
+  const minPrice = req.query.min || 0;
+  const maxPrice = req.query.max || Infinity;
+  const limit = 9;
+  const skip = req.query.skip * limit;
+  const query = {
+    category,
+    price_per_piece: { $gte: minPrice, $lte: maxPrice }
+  };
   try {
     const products = await Product.find(
-      { category },
+      query,
       { "__v": 0, "featured": 0, "updatedAt": 0, "reviews": 0 },
       {
         lean: true,
-        limit: 9
+        limit,
+        skip
       }
     );
-    res.send(products);
+    const count = await Product.countDocuments(query);
+    res.send({ products, count });
   } catch (err) {
     res.status(500).send();
   }
