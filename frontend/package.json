@@ -18,7 +18,6 @@
     "react-icons": "^4.1.0",
     "react-lazyload": "^3.1.1",
     "react-placeholder": "^4.1.0",
-    "react-request": "^3.2.0",
     "react-router-dom": "^5.2.0",
     "react-slick": "^0.28.0",
     "swr": "^0.4.1"
