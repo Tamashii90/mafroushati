@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
+import Tooltip from "@material-ui/core/Tooltip";
 import { useLocation } from "react-router-dom";
 
 const AirbnbSlider = withStyles({
@@ -30,9 +31,6 @@ const AirbnbSlider = withStyles({
     }
   },
   active: {},
-  valueLabel: {
-    left: "calc(-50% + 8px)"
-  },
   track: {
     height: 3
   },
@@ -103,14 +101,25 @@ export default React.memo(function AirSlider({ minPrice, maxPrice, ...props }) {
       label: "$" + maxPrice.toLocaleString("en-US")
     }
   ];
+  function ValueLabelComponent(props) {
+    const { children, open, value } = props;
+
+    return (
+      <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
+        {children}
+      </Tooltip>
+    );
+  }
   return (
     <AirbnbSlider
       // ThumbComponent={AirbnbThumbComponent}
+      ValueLabelComponent={ValueLabelComponent}
       marks={marks}
       value={value}
       min={minPrice}
       max={maxPrice}
       step={Math.round((maxPrice - minPrice) / 8)}
+      valueLabelFormat={value => "$" + value.toLocaleString("en-US")}
       valueLabelDisplay="auto"
       onChange={handleChange}
       {...props}

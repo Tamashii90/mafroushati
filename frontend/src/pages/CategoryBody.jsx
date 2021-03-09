@@ -55,20 +55,24 @@ export default function CategoryPage() {
         <title>{categoryName}</title>
       </Helmet>
       <h1 className="text-center">{categoryName}</h1>
-      <Slider
-        className="col-12"
-        onChangeCommitted={filterByPrice}
-        minPrice={price.min}
-        maxPrice={price.max}
-        valueLabelDisplay="auto"
-      />
       <div className="row justify-content-center justify-content-md-start">
+        <Slider
+          className="col-10 mx-auto"
+          onChangeCommitted={filterByPrice}
+          minPrice={price.min}
+          maxPrice={price.max}
+          valueLabelDisplay="auto"
+        />
         {!products && <Placeholder />}
         {products && <ProductGallery products={products} setInfo={setInfo} />}
+        {!!products?.length && (
+          <Pager
+            pages={Math.ceil(count / prodPerPage)}
+            setSkip={setSkip}
+            className="d-flex col-12 justify-content-center"
+          />
+        )}
       </div>
-      {!!count && (
-        <Pager pages={Math.ceil(count / prodPerPage)} setSkip={setSkip} />
-      )}
       {info.message && <MySnackbar setInfo={setInfo} info={info} />}
     </div>
   );
