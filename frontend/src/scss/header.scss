@@ -9,7 +9,7 @@ header {
 }
 
 .navbar {
-  margin-bottom: calc(2rem + 5px);
+  margin-bottom: 5px;
 }
 
 .navbar-end svg:hover {
@@ -20,9 +20,9 @@ header {
   display: block;
   transition: opacity 0.4s ease-in-out;
   min-width: 38em;
-  left: 15%;
   top: 90%;
   position: absolute;
+  transform: translateX(-33%);
   a {
     text-decoration: none;
     color: black;
@@ -55,6 +55,7 @@ header {
 
 @media (max-width: 1200px) {
   .navbar {
+    margin-bottom: calc(2rem + 5px);
     flex-direction: column;
     justify-content: space-between;
   }
@@ -77,6 +78,7 @@ header {
     text-align: center;
   }
   .dropdown-menu {
+    transform: translateX(0);
     min-width: 33em;
     position: relative;
   }

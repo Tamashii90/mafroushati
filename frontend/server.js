@@ -42,6 +42,9 @@ const server = new ParcelProxyServer({
     },
     "/search": {
       target: "http://localhost:3000"
+    },
+    "/logo.png": {
+      target: "http://localhost:3000"
     }
   }
 });
