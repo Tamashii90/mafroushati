@@ -16,10 +16,19 @@ header {
   fill: brown;
 }
 
+.dropdown-header {
+  padding-bottom: 0;
+  padding-top: 4px;
+}
+
+.dropdown-item:last-child {
+  padding-bottom: 8px;
+}
+
 .dropdown-menu {
   display: block;
   transition: opacity 0.4s ease-in-out;
-  min-width: 38em;
+  min-width: 35rem;
   top: 90%;
   position: absolute;
   transform: translateX(-33%);
@@ -55,7 +64,7 @@ header {
 
 @media (max-width: 1200px) {
   .navbar {
-    margin-bottom: calc(2rem + 5px);
+    margin-bottom: 2rem;
     flex-direction: column;
     justify-content: space-between;
   }
@@ -79,8 +88,15 @@ header {
   }
   .dropdown-menu {
     transform: translateX(0);
-    min-width: 33em;
+    min-width: auto;
+    text-align: center;
     position: relative;
+  }
+}
+
+@media (max-width: 413px) {
+  div.position-relative {
+    text-align: right !important;
   }
 }
 

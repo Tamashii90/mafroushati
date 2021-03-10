@@ -134,7 +134,7 @@ export default function Header() {
             <input type="submit" value="Search" />
           </form>
           <div
-            className="position-relative align-self-end d-flex flex-row"
+            className="position-relative align-self-end d-md-flex flex-row text-center"
             style={{ top: "20px" }}
           >
             {auth ? (
@@ -154,7 +154,7 @@ export default function Header() {
                 <Link to="/register">Register</Link>
               </div>
             )}
-            <div className="ml-2">
+            <div className="ml-2 mt-2 mt-md-0">
               <Link to="/cart">
                 <FaShoppingCart size="25px" className="ml-xl-1" color="red" />
               </Link>
