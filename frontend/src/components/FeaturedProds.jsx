@@ -7,7 +7,7 @@ import Placeholder from "./Placeholder/ProductCarousel";
 import useSWR from "swr";
 
 export default function FeaturedProds() {
-  const { data: prods } = useSWR("/products/featured");
+  const { data: prods } = useSWR("/api/products/featured");
   const settings = {
     dots: true,
     arrows: false,

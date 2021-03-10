@@ -5,7 +5,7 @@ import Placeholder from "./Placeholder/ProductGallery";
 import { fetcher } from "../utils";
 
 export default function RecentProds() {
-  const { data: prods, error } = useSWR("/products/recent", fetcher);
+  const { data: prods, error } = useSWR("/api/products/recent", fetcher);
   return (
     <>
       <div className="container">

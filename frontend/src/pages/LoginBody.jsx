@@ -14,7 +14,7 @@ const LoginPage = () => {
     setLoading(true);
     const form = new FormData(e.target);
     try {
-      const response = await fetcher("/login/test", {
+      const response = await fetcher("/api/login/test", {
         method: "POST",
         body: new URLSearchParams(form) // otherwise enctype would be multipart/formdata
       });

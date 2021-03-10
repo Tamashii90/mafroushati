@@ -30,7 +30,7 @@ export default function CartBody() {
 
   async function getProds() {
     try {
-      const res = await fetcher("/cart", {
+      const res = await fetcher("/api/cart", {
         method: "POST",
         body: JSON.stringify({ listOfProds }),
         headers: { "Content-Type": "application/json" }

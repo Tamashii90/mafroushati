@@ -20,7 +20,7 @@ export default function CategoryPage() {
   const [info, setInfo] = useState({ message: "", severity: "info" });
 
   const { data, error } = useSWR(
-    `/category/${category}?min=${filter.min}&max=${filter.max}&skip=${skip}`,
+    `/api/category/${category}?min=${filter.min}&max=${filter.max}&skip=${skip}`,
     fetcher
   );
   useEffect(() => {

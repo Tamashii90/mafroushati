@@ -1,11 +1,11 @@
 const User = require("../models/User");
 
-exports.get_login = (req, res) => {
-  res.render("login");
-};
-exports.get_register = (req, res) => {
-  res.render("register");
-};
+// exports.get_login = (req, res) => {
+//   res.render("login");
+// };
+// exports.get_register = (req, res) => {
+//   res.render("register");
+// };
 exports.get_user = (req, res) => {
   if (req.user) {
     return res.send({ error: false, body: req.user });
@@ -34,7 +34,9 @@ exports.post_register = async (req, res) => {
     });
   } catch (err) {
     if (err.errors) {
-      return res.status(400).send({ error: true, body: err.errors, message: err._message });
+      return res
+        .status(400)
+        .send({ error: true, body: err.errors, message: err._message });
     }
     res.status(500).send({ error: true, message: "Server error." });
   }
@@ -48,7 +50,9 @@ exports.patch_user = async (req, res) => {
     res.send({ error: false, message: "Changes saved." });
   } catch (err) {
     if (err.errors) {
-      return res.status(400).send({ error: true, message: err._message, body: err.errors });
+      return res
+        .status(400)
+        .send({ error: true, message: err._message, body: err.errors });
     }
     res.stats(500).send();
   }

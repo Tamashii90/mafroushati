@@ -10,7 +10,7 @@ export default function SearchBody() {
   const [, setInfo] = useContext(InfoContext);
   const history = useHistory();
   const { search } = history.location;
-  const { data: products, error } = useSWR(`/search${search}`, fetcher);
+  const { data: products, error } = useSWR(`/api/search${search}`, fetcher);
   if (error) setInfo({ message: error.message, severity: "error" });
   return (
     <div className="container">

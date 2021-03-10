@@ -12,12 +12,12 @@ const WriteReview = ({ prodId }) => {
     const form = new FormData(e.target);
     form.append("prodId", prodId);
     try {
-      await fetcher("/review/test", {
+      await fetcher("/api/review/test", {
         method: "POST",
         body: new URLSearchParams(form)
       });
       setLoading(false);
-      mutate(`/products/${prodId}`);
+      mutate(`/api/products/${prodId}`);
       e.target.reset();
     } catch (err) {
       setLoading(false);

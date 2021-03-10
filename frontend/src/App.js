@@ -18,7 +18,7 @@ export default function App() {
   useEffect(() => {
     async function authenticate() {
       try {
-        const response = await fetcher("/current_user");
+        const response = await fetcher("/api/current_user");
         setAuth(response.body);
       } catch (err) {}
     }

@@ -7,43 +7,43 @@ const server = new ParcelProxyServer({
     sourceMaps: false
   },
   proxies: {
-    "/products": {
+    "/api/products": {
       target: "http://localhost:3000"
     },
-    "/products/*": {
+    "/api/products/*": {
       target: "http://localhost:3000"
     },
-    "/category/*": {
+    "/api/category/*": {
       target: "http://localhost:3000"
     },
-    "/review/*": {
+    "/api/review/*": {
       target: "http://localhost:3000"
     },
-    "/current_user": {
+    "/api/current_user": {
       target: "http://localhost:3000"
     },
     "/admin": {
       target: "http://localhost:3000"
     },
-    "/logout": {
+    "/api/logout": {
       target: "http://localhost:3000"
     },
-    "/login/test": {
+    "/api/login/test": {
       target: "http://localhost:3000"
     },
-    "/register/test": {
+    "/api/register/test": {
       target: "http://localhost:3000"
     },
-    "/cart": {
+    "/api/cart": {
       target: "http://localhost:3000"
     },
-    "/cart/checkout": {
+    "/api/cart/checkout": {
       target: "http://localhost:3000"
     },
-    "/search": {
+    "/api/search": {
       target: "http://localhost:3000"
     },
-    "/logo.png": {
+    "/images/logo.png": {
       target: "http://localhost:3000"
     }
   }

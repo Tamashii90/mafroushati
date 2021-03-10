@@ -1,4 +1,3 @@
-require("dotenv").config();
 const mongooseConnection = require("./src/db/mongoose");
 const express = require("express");
 const app = express();
@@ -9,6 +8,7 @@ const userRouter = require("./src/routes/user");
 const productRouter = require("./src/routes/product");
 const cartRouter = require("./src/routes/cart");
 const reviewRouter = require("./src/routes/review");
+const { isNotAdmin } = require("./src/middlewares/auth");
 
 app.set("view engine", "hbs");
 app.set("views", `${__dirname}/src/views`);
@@ -20,16 +20,18 @@ app.use(sessionMiddleware(mongooseConnection));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use(userRouter);
-app.use(productRouter);
-app.use(cartRouter);
-app.use(reviewRouter);
+app.use("/api/", userRouter);
+app.use("/api/", productRouter);
+app.use("/api/", cartRouter);
+app.use("/api/", reviewRouter);
 
-// app.get('/', (req, res) => {
-//     res.render('index', { user: req.user, error: req.flash('error') });
-// });
+app.get("/admin", isNotAdmin("/"), (req, res) => {
+  const errors = req.flash("error")[0];
+  res.render("admin", { message: req.flash("info"), errors });
+});
+
 app.all("*", (req, res) => {
-  res.status(404).send("The page you're looking for is in another castle.");
+  res.sendFile("./src/public/index.html", { root: __dirname });
 });
 
 app.listen(process.env.PORT, () =>

@@ -5,7 +5,7 @@ import Placeholder from "./Placeholder/ReviewCarousel";
 import useSWR from "swr";
 
 const ReviewCarousel = () => {
-  const { data: reviews } = useSWR("/review/featured");
+  const { data: reviews } = useSWR("/api/review/featured");
   const settings = {
     dots: true,
     arrows: true,

@@ -13,7 +13,7 @@ const ViewingMode = ({ product, admin, setEdit }) => {
   const deleteProduct = async () => {
     if (confirm("Are you sure ?")) {
       try {
-        await fetcher(`/products/${product._id}`, {
+        await fetcher(`/api/products/${product._id}`, {
           method: "DELETE"
         });
         history.replace("/");

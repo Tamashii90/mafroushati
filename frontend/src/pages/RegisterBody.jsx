@@ -12,7 +12,7 @@ const RegisterPage = () => {
     e.preventDefault();
     const form = new FormData(e.target);
     try {
-      const response = await fetcher("/register/test", {
+      const response = await fetcher("/api/register/test", {
         method: "POST",
         body: new URLSearchParams(form)
       });

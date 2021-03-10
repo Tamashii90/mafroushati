@@ -13,13 +13,13 @@ const EditingMode = ({ setEditMode, review, prodId }) => {
     setLoading(true);
     const form = new FormData(e.target);
     try {
-      await fetcher(`/review/${review._id}`, {
+      await fetcher(`/api/review/${review._id}`, {
         method: "PATCH",
         body: new URLSearchParams(form)
       });
       setLoading(false);
       setEditMode(false);
-      mutate(`/products/${prodId}`);
+      mutate(`/api/products/${prodId}`);
     } catch (err) {
       setLoading(false);
       setInfo({ message: err.message, severity: "error" });

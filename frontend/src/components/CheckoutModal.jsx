@@ -43,7 +43,7 @@ export default function CheckoutModal({ open, handleClose, listOfProds }) {
   const submitPurchase = async e => {
     e.preventDefault();
     try {
-      await fetcher("/cart/checkout", {
+      await fetcher("/api/cart/checkout", {
         method: "POST",
         body: JSON.stringify(listOfProds),
         headers: {

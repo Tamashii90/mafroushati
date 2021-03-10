@@ -15,7 +15,7 @@ export default function ProductPage() {
   const { _id } = useParams();
   const [edit, setEdit] = useState(false);
   const [, setInfo] = useContext(InfoContext);
-  const { data: product, error } = useSWR(`/products/${_id}`, fetcher);
+  const { data: product, error } = useSWR(`/api/products/${_id}`, fetcher);
   const [auth] = useContext(AuthContext);
   const admin = auth?.admin;
   useEffect(() => {

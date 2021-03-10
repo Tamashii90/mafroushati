@@ -17,10 +17,10 @@ const ViewingMode = ({ review, setEditMode, prodId }) => {
   const deleteReview = async () => {
     if (confirm("Are you sure ?")) {
       try {
-        await fetcher(`/review/${review._id}`, {
+        await fetcher(`/api/review/${review._id}`, {
           method: "DELETE"
         });
-        mutate(`/products/${prodId}`);
+        mutate(`/api/products/${prodId}`);
       } catch (err) {
         setInfo({ message: err.message, severity: "error" });
       }

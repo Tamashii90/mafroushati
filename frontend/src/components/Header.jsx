@@ -21,7 +21,7 @@ export default function Header() {
   const logOut = async () => {
     setLoading(true);
     try {
-      const response = await fetcher("/logout", { method: "POST" });
+      const response = await fetcher("/api/logout", { method: "POST" });
       setAuth(null);
       history.replace("/");
       setInfo({ message: response.message, severity: "success" });
@@ -48,7 +48,7 @@ export default function Header() {
       <nav className="navbar navbar-expand-xl navbar-light">
         <div className="navbar-start my-3">
           <Link className="navbar-brand mr-0" to="/">
-            <img src="/logo.png" alt="Mafroushati" />
+            <img src="images/logo.png" alt="Mafroushati" />
           </Link>
           <button
             className="navbar-toggler"

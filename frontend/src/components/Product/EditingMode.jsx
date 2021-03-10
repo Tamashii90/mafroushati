@@ -13,13 +13,13 @@ const EditingMode = ({ setEdit, product }) => {
     setLoading(true);
     const form = new FormData(e.target);
     try {
-      await fetcher(`/products/${product._id}`, {
+      await fetcher(`/api/products/${product._id}`, {
         method: "PATCH",
         body: form
       });
       setLoading(false);
       setEdit(false);
-      mutate(`/products/${product._id}`);
+      mutate(`/api/products/${product._id}`);
     } catch (err) {
       setLoading(false);
       err.body ? setErrors(err.body) : setErrors({ general: err.message });
