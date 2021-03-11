@@ -3,15 +3,13 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
-    "start": "node server.js",
-    "build": "parcel build index.html --no-source-maps --out-dir ../src/public"
+    "dev": "parcel serve index.html -p 5000",
+    "build": "parcel build index.html --no-source-maps --dist-dir ../src/public/"
   },
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.57",
-    "parcel-bundler": "^1.12.4",
-    "parcel-proxy-server": "^1.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
@@ -23,21 +21,9 @@
     "swr": "^0.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "babel-preset-nano-react-app": "^0.1.0",
-    "parcel": "^2.0.0-alpha.3.2",
-    "sass": "^1.32.5"
-  },
-  "babel": {
-    "presets": [
-      "nano-react-app"
-    ]
-  },
-  "browserslist": [
-    ">0.2%",
-    "iOS >= 9",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "@babel/core": "^7.13.10",
+    "babel-preset-react-app": "^10.0.0",
+    "parcel": "^2.0.0-nightly.623",
+    "sass": "^1.32.8"
+  }
 }

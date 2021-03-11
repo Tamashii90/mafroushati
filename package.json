@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon -r dotenv/config index.js -e js,hbs dotenv_config_path=./.env",
     "start": "node index.js",
-    "heroku-postbuild": "cd ./frontend && npm install --production=false && npm run build && cd ..",
+    "heroku-postbuild": "cd ./frontend && npm ci --also=dev && npm run build",
     "heroku-cleanup": "rm -r ./frontend"
   },
   "license": "ISC",
@@ -27,12 +27,5 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
-  },
-  "browserslist": [
-    ">0.2%",
-    "iOS >= 9",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }

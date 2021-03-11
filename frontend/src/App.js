@@ -6,12 +6,12 @@ import AuthContext from "./context/AuthContext";
 import Helmet from "react-helmet";
 import { fetcher } from "./utils";
 
-const ProductBody = lazy(() => import("./pages/ProductBody"));
-const CategoryBody = lazy(() => import("./pages/CategoryBody"));
-const CartBody = lazy(() => import("./pages/CartBody"));
-const LoginBody = lazy(() => import("./pages/LoginBody"));
-const RegisterBody = lazy(() => import("./pages/RegisterBody"));
-const SearchBody = lazy(() => import("./pages/SearchBody"));
+import ProductBody from "./pages/ProductBody";
+import CategoryBody from "./pages/CategoryBody";
+import CartBody from "./pages/CartBody";
+import LoginBody from "./pages/LoginBody";
+import RegisterBody from "./pages/RegisterBody";
+import SearchBody from "./pages/SearchBody";
 
 export default function App() {
   const [, setAuth] = useContext(AuthContext);
