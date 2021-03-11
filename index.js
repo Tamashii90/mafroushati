@@ -1,4 +1,5 @@
 const mongooseConnection = require("./src/db/mongoose");
+const compression = require("compression");
 const express = require("express");
 const app = express();
 const flash = require("connect-flash");
@@ -13,6 +14,7 @@ const { isNotAdmin } = require("./src/middlewares/auth");
 app.set("view engine", "hbs");
 app.set("views", `${__dirname}/src/views`);
 
+app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(`${__dirname}/src/public`));
