@@ -3,7 +3,7 @@ import AuthContext from "../context/AuthContext";
 import { Redirect, Link } from "react-router-dom";
 import { fetcher } from "../utils";
 
-const RegisterPage = () => {
+export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
   const [auth, setAuth] = useContext(AuthContext);
@@ -54,6 +54,4 @@ const RegisterPage = () => {
       <Link to="/login">Log In</Link>
     </div>
   );
-};
-
-export default RegisterPage;
+}

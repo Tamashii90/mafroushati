@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon -r dotenv/config index.js -e js,hbs dotenv_config_path=./.env",
     "start": "node index.js",
-    "heroku-postbuild": "cd ./frontend && npm ci --also=dev && npm run build",
+    "heroku-postbuild": "cd ./frontend && npm install --production=false && npm run build && cd ..",
     "heroku-cleanup": "rm -r ./frontend"
   },
   "license": "ISC",

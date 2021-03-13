@@ -5,7 +5,7 @@ import { mutate } from "swr";
 import MySnackBar from "../MySnackbar";
 import InfoContext from "../../context/InfoContext";
 
-const ViewingMode = ({ review, setEditMode, prodId }) => {
+export default function ViewingMode({ review, setEditMode, prodId }) {
   const [auth] = useContext(AuthContext);
   const [info, setInfo] = useContext(InfoContext);
   const { createdAt, updatedAt, user, content, featured } = review;
@@ -51,6 +51,4 @@ const ViewingMode = ({ review, setEditMode, prodId }) => {
       </div>
     </div>
   );
-};
-
-export default ViewingMode;
+}

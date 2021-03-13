@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Placeholder from "./Placeholder/ReviewCarousel";
 import useSWR from "swr";
 
-const ReviewCarousel = () => {
+export default function ReviewCarousel() {
   const { data: reviews } = useSWR("/api/review/featured");
   const settings = {
     dots: true,
@@ -56,6 +56,4 @@ const ReviewCarousel = () => {
       )}
     </div>
   );
-};
-
-export default ReviewCarousel;
+}

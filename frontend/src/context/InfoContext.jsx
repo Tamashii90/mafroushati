@@ -1,8 +1,6 @@
 import React, { createContext, useState } from "react";
 
-const InfoContext = createContext();
-
-export default InfoContext;
+export default InfoContext = createContext();
 
 export function InfoContextProvider({ children }) {
   const [info, setInfo] = useState({ message: "", severity: "info" });

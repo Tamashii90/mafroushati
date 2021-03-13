@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, lazy, Suspense } from "react";
+import React, { useEffect, useContext } from "react";
 import Header from "./components/Header";
 import MainBody from "./pages/MainBody";
 import { Switch, Route } from "react-router-dom";
@@ -33,17 +33,15 @@ export default function App() {
         <Header />
       </header>
       <main>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Switch>
-            <Route exact path="/" component={MainBody} />
-            <Route exact path="/category/:category" component={CategoryBody} />
-            <Route exact path="/products/:_id" component={ProductBody} />
-            <Route exact path="/cart" component={CartBody} />
-            <Route exact path="/login" component={LoginBody} />
-            <Route exact path="/register" component={RegisterBody} />
-            <Route exact path="/search" component={SearchBody} />
-          </Switch>
-        </Suspense>
+        <Switch>
+          <Route exact path="/" component={MainBody} />
+          <Route exact path="/category/:category" component={CategoryBody} />
+          <Route exact path="/products/:_id" component={ProductBody} />
+          <Route exact path="/cart" component={CartBody} />
+          <Route exact path="/login" component={LoginBody} />
+          <Route exact path="/register" component={RegisterBody} />
+          <Route exact path="/search" component={SearchBody} />
+        </Switch>
       </main>
     </>
   );

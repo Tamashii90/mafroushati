@@ -4,7 +4,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 import { fetcher } from "../utils";
 import InfoContext from "../context/InfoContext";
 
-const LoginPage = () => {
+export default function LoginPage() {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [, setInfo] = useContext(InfoContext);
@@ -46,6 +46,4 @@ const LoginPage = () => {
       )}
     </>
   );
-};
-
-export default LoginPage;
+}

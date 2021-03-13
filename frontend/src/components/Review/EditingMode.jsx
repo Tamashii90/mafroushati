@@ -4,7 +4,7 @@ import { fetcher } from "../../utils";
 import AuthContext from "../../context/AuthContext";
 import InfoContext from "../../context/InfoContext";
 
-const EditingMode = ({ setEditMode, review, prodId }) => {
+export default function EditingMode({ setEditMode, review, prodId }) {
   const [loading, setLoading] = useState(false);
   const [, setInfo] = useContext(InfoContext);
   const [auth] = useContext(AuthContext);
@@ -63,6 +63,4 @@ const EditingMode = ({ setEditMode, review, prodId }) => {
       </button>
     </form>
   );
-};
-
-export default EditingMode;
+}

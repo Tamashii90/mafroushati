@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { fetcher } from "../../utils";
 import { mutate } from "swr";
 
-const EditingMode = ({ setEdit, product }) => {
+export default function EditingMode({ setEdit, product }) {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const cancelEdits = async () => {
@@ -167,6 +167,4 @@ const EditingMode = ({ setEdit, product }) => {
       </button>
     </>
   );
-};
-
-export default EditingMode;
+}

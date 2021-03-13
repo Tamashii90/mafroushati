@@ -10,8 +10,7 @@ export default function Placeholder() {
           className="col-12"
           style={{
             display: "inline-block",
-            height: 290,
-            width: 290,
+            height: "300px",
             marginRight: 0
           }}
         />

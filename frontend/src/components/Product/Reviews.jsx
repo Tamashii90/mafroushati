@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import WriteReview from "./WriteReview";
 import Review from "../Review";
 
-const Reviews = ({ product, auth }) => {
+export default function Reviews({ product, auth }) {
   const reviewExists = () => {
     return product.reviews.some(review => review.user === auth.username);
   };
@@ -28,6 +28,4 @@ const Reviews = ({ product, auth }) => {
       </div>
     </div>
   );
-};
-
-export default Reviews;
+}

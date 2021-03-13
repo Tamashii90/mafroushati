@@ -3,7 +3,7 @@ import { fetcher } from "../../utils";
 import { mutate } from "swr";
 import InfoContext from "../../context/InfoContext";
 
-const WriteReview = ({ prodId }) => {
+export default function WriteReview({ prodId }) {
   const [loading, setLoading] = useState(false);
   const [, setInfo] = useContext(InfoContext);
   const submitReview = async e => {
@@ -37,6 +37,4 @@ const WriteReview = ({ prodId }) => {
       </button>
     </form>
   );
-};
-
-export default WriteReview;
+}

@@ -3,7 +3,7 @@ import RecentProds from "../components/RecentProds";
 import FeaturedProds from "../components/FeaturedProds";
 import ReviewCarousel from "../components/ReviewCarousel";
 
-const MainPage = () => {
+export default function MainPage() {
   return (
     <>
       <div
@@ -14,6 +14,4 @@ const MainPage = () => {
       <ReviewCarousel />
     </>
   );
-};
-
-export default MainPage;
+}

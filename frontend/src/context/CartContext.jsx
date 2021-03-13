@@ -1,6 +1,6 @@
 import React, { createContext, useEffect } from "react";
 import { useCart } from "../hooks";
-const CartContext = createContext();
+export default CartContext = createContext();
 
 export function CartContextProvider({ children }) {
   const oldCart = JSON.parse(
@@ -16,5 +16,3 @@ export function CartContextProvider({ children }) {
     </CartContext.Provider>
   );
 }
-
-export default CartContext;
