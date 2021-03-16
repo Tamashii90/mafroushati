@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import "../scss/product-card.scss";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 import CartContext from "../context/CartContext";
@@ -24,12 +23,12 @@ export default function ProductCard({ product }) {
     return cart.products.some(existingProd => existingProd._id === product._id);
   };
   return (
-    <div className="col-12 bg-danger my-3">
+    <div className="col-12 my-3 product-card">
       <div className="row text-center justify-content-center">
         {/* <LazyLoad once height={400} offset={200}> */}
         <div className="text-center">
           <img
-            className="px-3 py-4"
+            className="p-3"
             src={img_url}
             alt={name}
             style={{ width: "290px", height: "290px" }}
@@ -41,7 +40,7 @@ export default function ProductCard({ product }) {
           <Link to={`/category/${category}`}>{categoryName}</Link>
         </p>
         <p className="col-12">
-          Price: {"$" + price_per_piece.toLocaleString("en-US")}
+          {"$" + price_per_piece.toLocaleString("en-US")}
         </p>
         <p className="col-12">
           {quantity_in_stock > 0 ? (

@@ -12,6 +12,6 @@ export default React.memo(function Pager({ pages, setSkip, ...props }) {
   };
 
   return (
-    <Pagination count={pages} onChange={setPage} color="primary" {...props} />
+    <Pagination count={pages} onChange={setPage} {...props} color="primary" />
   );
 }, shouldntUpdate);

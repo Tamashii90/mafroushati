@@ -26,32 +26,59 @@ export default function RegisterPage() {
 
   if (auth) return <Redirect to="/" />;
   return (
-    <div>
+    <div className="container form-container">
+      <h2 className="text-center">Register An Account</h2>
       <form onSubmit={register}>
-        <input type="text" name="username" placeholder="Username" />
-        <br />
-        {error.username?.message}
-        <br />
-        <input type="password" name="password" placeholder="Password" />
-        <br />
-        {error.password?.message}
-        <br />
-        <input
-          type="password"
-          name="pwdConfirm"
-          placeholder="Repeat your password"
-        />
-        <br />
-        {error.pwdConfirm?.message}
-        <br />
-        <button type="submit">
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            className="form-control"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Username"
+            required
+          />
+          <small className="form-text text-danger">
+            {error.username?.message}
+          </small>
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            className="form-control"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <small className="form-text text-danger">
+            {error.password?.message}
+          </small>
+        </div>
+        <div className="form-group">
+          <label htmlFor="pwdConfirm">Repeat Password</label>
+          <input
+            className="form-control"
+            type="password"
+            id="pwdConfirm"
+            name="pwdConfirm"
+            placeholder="Repeat your password"
+            required
+          />
+          <small className="form-text text-danger">
+            {error.pwdConfirm?.message}
+          </small>
+        </div>
+        <button type="submit" className="btn btn-primary">
           Register
           {loading && (
             <span className="ml-2 spinner-grow spinner-grow-sm"></span>
           )}
         </button>
       </form>
-      <Link to="/login">Log In</Link>
+      <Link to="/login">Already a member ?</Link>
     </div>
   );
 }

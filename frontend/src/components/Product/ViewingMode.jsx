@@ -39,10 +39,7 @@ export default function ViewingMode({ product, admin, setEdit }) {
       <div className="col-lg-6 col-12 text-center text-lg-left">
         <div className="col-12 ml-lg-4 mt-lg-0 mt-3 ">
           <h3 className="mb-4">{product.name}</h3>
-          <p>
-            Price:
-            {` $${product.price_per_piece.toLocaleString("en-US")}`}
-          </p>
+          <p>{` $${product.price_per_piece.toLocaleString("en-US")}`}</p>
           <p>
             Added
             {" " + new Date(product.createdAt).toISOString().slice(0, 10)}

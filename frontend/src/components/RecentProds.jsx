@@ -9,7 +9,7 @@ export default function RecentProds() {
   return (
     <>
       <div className="container">
-        <h1>Recently Added</h1>
+        <h1 className="text-center">Recently Added</h1>
         <div className="row justify-content-center justify-content-md-start">
           {!prods && <Placeholder />}
           {prods && <ProdsGallery products={prods} />}

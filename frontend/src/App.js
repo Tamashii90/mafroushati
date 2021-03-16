@@ -12,6 +12,7 @@ import CartBody from "./pages/CartBody";
 import LoginBody from "./pages/LoginBody";
 import RegisterBody from "./pages/RegisterBody";
 import SearchBody from "./pages/SearchBody";
+import "./styles/all.scss";
 
 export default function App() {
   const [, setAuth] = useContext(AuthContext);

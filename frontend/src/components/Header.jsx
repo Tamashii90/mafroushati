@@ -2,14 +2,14 @@ import React, { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import DropMenu from "./DropMenu";
 import SubMenu from "./SubMenu";
-import "../scss/header.scss";
 import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import CartContext from "../context/CartContext";
 import InfoContext from "../context/InfoContext";
 import MySnackbar from "./MySnackbar";
 import { fetcher } from "../utils";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
 export default function Header() {
   const history = useHistory();
@@ -45,7 +45,7 @@ export default function Header() {
   return (
     <>
       {info.message && <MySnackbar info={info} setInfo={setInfo} />}
-      <nav className="navbar navbar-expand-xl navbar-light">
+      <nav className="navbar navbar-expand-xl navbar-light pb-5 pb-xl-3">
         <div className="navbar-start my-3">
           <Link className="navbar-brand mr-0" to="/">
             <img src="images/logo.png" alt="Mafroushati" />
@@ -128,20 +128,38 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end mr-xl-1">
           <form onSubmit={submitSearch}>
-            <input type="text" name="q" maxLength="50" />
-            <input type="submit" value="Search" />
+            <div className="input-group w-75 ml-xl-auto">
+              <input
+                className="form-control"
+                type="text"
+                name="q"
+                maxLength="50"
+                placeholder="Search.."
+              />
+              <div className="input-group-append">
+                <button
+                  type="submit"
+                  style={{ border: "none", background: "none" }}
+                >
+                  <FaSearch color="#007bff" size="25px" />
+                </button>
+              </div>
+            </div>
           </form>
           <div
             className="position-relative align-self-end d-md-flex flex-row text-center"
             style={{ top: "20px" }}
           >
             {auth ? (
-              <div>
+              <div id="logout">
                 <span>{auth.username}</span>
-                <button onClick={logOut}>
-                  Log Out
+                <button
+                  onClick={logOut}
+                  style={{ border: "none", background: "none" }}
+                >
+                  <RiLogoutCircleRLine color="#007bff" size="25px" />
                   {loading && (
                     <span className="ml-2 spinner-grow spinner-grow-sm"></span>
                   )}
@@ -156,10 +174,14 @@ export default function Header() {
             )}
             <div className="ml-2 mt-2 mt-md-0">
               <Link to="/cart">
-                <FaShoppingCart size="25px" className="ml-xl-1" color="red" />
+                <FaShoppingCart
+                  size="25px"
+                  className="ml-xl-1"
+                  color="#00ff84"
+                />
               </Link>
               <span
-                className="badge badge-secondary"
+                className="badge badge-primary text-white"
                 style={{ position: "relative", bottom: "10px" }}
               >
                 {cart.products.length}

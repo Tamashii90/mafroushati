@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import Placeholder from "./Placeholder/ReviewCarousel";
 import useSWR from "swr";
+import { FiArrowRightCircle, FiArrowLeftCircle } from "react-icons/fi";
 
 export default function ReviewCarousel() {
   const { data: reviews } = useSWR("/api/review/featured");
@@ -15,6 +16,8 @@ export default function ReviewCarousel() {
     slidesToScroll: 1,
     autoplay: false,
     cssEase: "linear",
+    nextArrow: <FiArrowRightCircle />,
+    prevArrow: <FiArrowLeftCircle />,
     responsive: [
       {
         breakpoint: 992,
@@ -33,7 +36,7 @@ export default function ReviewCarousel() {
 
   return (
     <div className="container">
-      <h3>What Our Customers Say</h3>
+      <h1 className="text-center mb-4">What Our Customers Say</h1>
       {!reviews && (
         <div className="row justify-content-center justify-content-md-start">
           <Placeholder />

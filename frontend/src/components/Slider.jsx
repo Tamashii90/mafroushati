@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 import Tooltip from "@material-ui/core/Tooltip";
-import { useLocation } from "react-router-dom";
 
 const AirbnbSlider = withStyles({
   root: {
-    color: "red",
+    color: "#007bff",
     height: 3,
-    padding: "13px 0"
+    padding: "13px 0",
+    margin: "3rem 0 4rem"
   },
   thumb: {
     height: 27,

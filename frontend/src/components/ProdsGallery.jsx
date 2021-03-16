@@ -1,6 +1,5 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import "../scss/product-card.scss";
 
 export default function ProdsGallery({ products }) {
   return (

@@ -30,18 +30,39 @@ export default function LoginPage() {
       {auth ? (
         <Redirect to="/" />
       ) : (
-        <div>
+        <div className="form-container container">
+          <h2 className="text-center">Log In to Your Account</h2>
           <form onSubmit={login}>
-            <input type="text" name="username" placeholder="Username" />
-            <input type="password" name="password" placeholder="Password" />
-            <button type="submit">
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <input
+                className="form-control"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                className="form-control"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
               Login
               {loading && (
                 <span className="ml-2 spinner-grow spinner-grow-sm"></span>
               )}
             </button>
           </form>
-          <Link to="/register">Sign Up</Link>
+          <Link to="/register">Don't have an account ?</Link>
         </div>
       )}
     </>

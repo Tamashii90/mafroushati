@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../scss/product-body.scss";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import Helmet from "react-helmet";

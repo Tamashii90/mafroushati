@@ -30,6 +30,7 @@ export default function WriteReview({ prodId }) {
         className="form-control col-7"
         name="content"
         placeholder="Write a review.."
+        required
       />
       <button type="submit" className="btn btn-primary mt-3">
         Submit Review

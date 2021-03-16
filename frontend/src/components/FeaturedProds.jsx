@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import ProductCard from "./ProductCard";
-import "../scss/product-card.scss";
-import "../scss/slick.css";
 import Slider from "react-slick";
+import "../styles/slick.css";
 import Placeholder from "./Placeholder/ProductCarousel";
 import useSWR from "swr";
 
@@ -37,7 +36,7 @@ export default function FeaturedProds() {
   if (!prods)
     return (
       <div className="container">
-        <h1>Featured</h1>
+        <h1 className="text-center">Featured</h1>
         <div className="row justify-content-center justify-content-md-start">
           <Placeholder />
         </div>
@@ -46,7 +45,7 @@ export default function FeaturedProds() {
 
   return (
     <div className="container">
-      <h1>Featured</h1>
+      <h1 className="text-center">Featured</h1>
       <Slider {...settings}>
         {prods.map(product => (
           <div key={product._id} className="px-3">

@@ -8,7 +8,7 @@ export default function Reviews({ product, auth }) {
     return product.reviews.some(review => review.user === auth.username);
   };
   return (
-    <div className="mt-4">
+    <div className="container">
       <h3>Customer Reviews</h3>
       {!product.reviews.length ? (
         <h6 className="mt-4">This product has no reviews.</h6>
