@@ -91,6 +91,10 @@ ProductSchema.index(
   { name: "text", category: "text" },
   { name: "search_index" }
 );
+ProductSchema.index(
+  { category: 1, price_per_piece: 1 },
+  { name: "get_category" }
+);
 
 ProductSchema.statics.calcTotal = function ({ productsInCart, productsInDb }) {
   const totalsArray = productsInCart.map(prodInCart => {
