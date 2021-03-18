@@ -96,8 +96,20 @@ $danger: #ff006c;
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-body {
+body,
+html {
   font-family: "Merriweather", serif;
+  height: 100%; // to make footer stick at bottom
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100%; // to make footer stick at bottom
+  main {
+    flex-grow: 1;
+  }
 }
 
 h1,
@@ -251,6 +263,21 @@ p.filler {
   background-color: $secondary !important;
 }
 
+footer {
+  background: $secondary;
+  color: black;
+  padding: 3rem 2rem 1rem;
+  ul li {
+    margin-top: 0.5rem;
+  }
+  li a {
+    color: white;
+  }
+  a:hover {
+    text-shadow: none;
+  }
+}
+
 @media (max-width: 1200px) {
   .navbar {
     flex-direction: column;
@@ -288,6 +315,17 @@ p.filler {
     position: relative;
   }
 }
+
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+    ul {
+      padding-left: 0;
+      margin-top: 2rem;
+    }
+  }
+}
+
 @media (max-width: 413px) {
   div.position-relative {
     text-align: right !important;

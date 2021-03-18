@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import MainBody from "./pages/MainBody";
 import { Switch, Route } from "react-router-dom";
 import AuthContext from "./context/AuthContext";
@@ -44,6 +45,7 @@ export default function App() {
           <Route exact path="/search" component={SearchBody} />
         </Switch>
       </main>
+      <Footer />
     </>
   );
 }
