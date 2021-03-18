@@ -6,13 +6,14 @@ import { Switch, Route } from "react-router-dom";
 import AuthContext from "./context/AuthContext";
 import Helmet from "react-helmet";
 import { fetcher } from "./utils";
-
 import ProductBody from "./pages/ProductBody";
 import CategoryBody from "./pages/CategoryBody";
 import CartBody from "./pages/CartBody";
 import LoginBody from "./pages/LoginBody";
 import RegisterBody from "./pages/RegisterBody";
 import SearchBody from "./pages/SearchBody";
+import ContactBody from "./pages/ContactBody";
+import AboutBody from "./pages/AboutBody";
 import "./styles/all.scss";
 
 export default function App() {
@@ -43,6 +44,8 @@ export default function App() {
           <Route exact path="/login" component={LoginBody} />
           <Route exact path="/register" component={RegisterBody} />
           <Route exact path="/search" component={SearchBody} />
+          <Route exact path="/contact_us" component={ContactBody} />
+          <Route exact path="/about" component={AboutBody} />
         </Switch>
       </main>
       <Footer />

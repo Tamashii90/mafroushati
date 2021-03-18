@@ -30,7 +30,7 @@ export default function LoginPage() {
       {auth ? (
         <Redirect to="/" />
       ) : (
-        <div className="form-container container">
+        <div className="form-container container mb-5">
           <h2 className="text-center">Log In to Your Account</h2>
           <form onSubmit={login}>
             <div className="form-group">
@@ -41,6 +41,7 @@ export default function LoginPage() {
                 id="username"
                 name="username"
                 placeholder="Username"
+                defaultValue="test"
                 required
               />
             </div>
@@ -52,6 +53,7 @@ export default function LoginPage() {
                 id="password"
                 name="password"
                 placeholder="Password"
+                defaultValue="1234567"
                 required
               />
             </div>

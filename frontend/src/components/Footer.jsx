@@ -25,7 +25,7 @@ export default function Footer() {
               </li>
               <li>
                 <span className="mr-2">{"\u2709\uFE0F"}</span>
-                <Link to="/contact-us">Contact Us</Link>
+                <Link to="/contact_us">Contact Us</Link>
               </li>
               <li>
                 <span className="mr-2">{"\u2139\uFE0F"}</span>

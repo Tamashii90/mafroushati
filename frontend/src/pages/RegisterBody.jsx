@@ -26,7 +26,7 @@ export default function RegisterPage() {
 
   if (auth) return <Redirect to="/" />;
   return (
-    <div className="container form-container">
+    <div className="container form-container mb-5">
       <h2 className="text-center">Register An Account</h2>
       <form onSubmit={register}>
         <div className="form-group">

@@ -36,7 +36,7 @@ export default function ReviewCarousel() {
 
   return (
     <div className="container">
-      <h1 className="text-center mb-4">What Our Customers Say</h1>
+      <h1 className="text-center mb-5">What Our Customers Say</h1>
       {!reviews && (
         <div className="row justify-content-center justify-content-md-start">
           <Placeholder />
