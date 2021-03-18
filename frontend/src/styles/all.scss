@@ -126,6 +126,14 @@ header span.nav-link:hover {
   cursor: pointer;
 }
 
+svg[color="#007bff"]:hover {
+  fill: $secondary;
+}
+
+svg[color="#00ff84"]:hover {
+  fill: $primary;
+}
+
 .navbar {
   border-bottom: 2px solid $dark;
 }
@@ -135,12 +143,6 @@ header span.nav-link:hover {
   top: 1rem;
   display: flex;
   flex-direction: column;
-  svg:hover {
-    fill: $primary;
-  }
-  button svg:hover {
-    fill: $secondary;
-  }
 }
 
 .dropdown-header {

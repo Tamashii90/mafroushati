@@ -156,6 +156,7 @@ export default function Header() {
               <div id="logout">
                 <span>{auth.username}</span>
                 <button
+                  title="Log out"
                   onClick={logOut}
                   style={{ border: "none", background: "none" }}
                 >

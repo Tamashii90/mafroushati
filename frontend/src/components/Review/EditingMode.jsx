@@ -26,7 +26,11 @@ export default function EditingMode({ setEditMode, review, prodId }) {
     }
   };
   return (
-    <form className="my-4" onSubmit={submitReview}>
+    <form
+      className="my-4 pb-4"
+      onSubmit={submitReview}
+      style={{ borderBottom: "2px solid gray" }}
+    >
       <div className="form-group">
         <textarea
           className="form-control col-7"

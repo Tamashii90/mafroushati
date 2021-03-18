@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { fetcher } from "../../utils";
 import AuthContext from "../../context/AuthContext";
 import { mutate } from "swr";
-import MySnackBar from "../MySnackbar";
 import InfoContext from "../../context/InfoContext";
+import { MdModeEdit, MdDelete } from "react-icons/md";
 
 export default function ViewingMode({ review, setEditMode, prodId }) {
   const [auth] = useContext(AuthContext);
@@ -27,7 +27,10 @@ export default function ViewingMode({ review, setEditMode, prodId }) {
     }
   };
   return (
-    <div className="col-12 media mt-4">
+    <div
+      className="col-12 media mt-4 pb-4"
+      style={{ borderBottom: "2px solid gray" }}
+    >
       <div className="media-body row">
         <h3 className="col-6">{user}</h3>
         <p className="col-6 text-right">
@@ -44,8 +47,18 @@ export default function ViewingMode({ review, setEditMode, prodId }) {
         </p>
         {(auth?.username === user || auth?.admin) && (
           <div className="col-6 text-right">
-            <button onClick={() => setEditMode(true)}>Edit</button>
-            <button onClick={deleteReview}>Delete</button>
+            <button
+              style={{ border: "none", background: "none" }}
+              onClick={() => setEditMode(true)}
+            >
+              <MdModeEdit size="25px" color="#007bff" />
+            </button>
+            <button
+              style={{ border: "none", background: "none" }}
+              onClick={deleteReview}
+            >
+              <MdDelete size="25px" color="#007bff" />
+            </button>
           </div>
         )}
       </div>

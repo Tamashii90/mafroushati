@@ -17,7 +17,7 @@ export default function Reviews({ product, auth }) {
           <Review prodId={product._id} review={review} key={review._id} />
         ))
       )}
-      <div className="mt-4">
+      <div className="mt-5">
         {!auth ? (
           <span>
             <Link to="/login">Log in</Link> to write a review.
