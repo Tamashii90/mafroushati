@@ -9,10 +9,9 @@
     <title>Admin Panel</title>
 </head>
 
-<body>
-    {{message}}
-    <h1>Add New Product</h1>
-    <form>
+<body class="container">
+    <h1 class="my-3">Add New Product</h1>
+    <form class="my-4">
         <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Product Name</label>
             <div class="col-sm-10">
@@ -74,7 +73,7 @@
             </div>
         </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row mt-4">
             <div class="col-sm-10">
                 <button style="display:none;" type="button" id="loadingBtn" class="btn btn-primary" disabled>
                     <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
@@ -83,6 +82,11 @@
                 <button type="submit" id="submitBtn" class="btn btn-primary">Add Product</button>
                 <button type="reset" class="btn btn-secondary ml-2">Reset</button>
             </div>
+						{{#if message}}
+						<div class="col-sm-10 mt-2">
+								<span class="font-weight-bold">{{message}}</span>
+						</div>
+						{{/if}}
         </div>
     </form>
 </body>
@@ -96,13 +100,12 @@
         submitBtn.style.display = 'none';
         loadingBtn.style.display = 'inline-block';
         const formData = new FormData(form);
-        const response = await fetch("/products", {
+        const response = await fetch("/api/products", {
             method: 'POST',
             body: formData
         }).then(res => {
-            // Have to redirect manually because of how res.redirect() works
-            // when specifying status code other than 302
-            window.location.replace('/admin')
+            // redirect so it consumes the flash message in session
+                window.location.replace("/admin");
         });
     });
 </script>
