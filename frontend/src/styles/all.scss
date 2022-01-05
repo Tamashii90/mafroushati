@@ -220,6 +220,14 @@ p.filler {
   border: 2px solid $primary;
 }
 
+.cart-svg {
+  cursor: pointer;
+  fill: var(--primary);
+  &:hover {
+    fill: var(--secondary);
+  }
+}
+
 .form-container {
   padding: 3rem;
   background-color: $primary;

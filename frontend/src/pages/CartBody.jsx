@@ -85,7 +85,7 @@ export default function CartBody() {
       <div className="row">
         <div className="col-12">
           <div className="row my-3">
-            <div className="col text-center">Product</div>
+            <div className="col-4 text-center">Product</div>
             <div className="col text-center">Price Per Piece</div>
             <div className="col text-center">Quantity</div>
             <div className="col text-center">Total Price</div>
