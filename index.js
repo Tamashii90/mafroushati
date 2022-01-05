@@ -28,14 +28,13 @@ app.use("/api/", cartRouter);
 app.use("/api/", reviewRouter);
 
 app.get("/admin", isNotAdmin("/"), (req, res) => {
-  const errors = req.flash("error")[0];
-  res.render("admin", { message: req.flash("info"), errors });
+	const errors = req.flash("error")[0];
+	const info = req.flash("info")[0];
+	res.render("admin", { message: info, errors });
 });
 
 app.all("*", (req, res) => {
-  res.sendFile("./src/public/index.html", { root: __dirname });
+	res.sendFile("./src/public/index.html", { root: __dirname });
 });
 
-app.listen(process.env.PORT, () =>
-  console.log("Listening on port", process.env.PORT)
-);
+app.listen(process.env.PORT, () => console.log("Listening on port", process.env.PORT));
