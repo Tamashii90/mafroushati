@@ -81,15 +81,11 @@ export default function Header() {
 							<SubMenu title="Storage">
 								<Link to="/category/bookshelves">Bookshelves</Link>
 								<Link to="/category/tv+units">TV Units</Link>
-								<Link to="/category/shoe+racks">Shoe Racks</Link>
 							</SubMenu>
 						</DropMenu>
 						<DropMenu title="Bedroom">
 							<SubMenu title="Beds">
 								<Link to="/category/beds">Beds</Link>
-							</SubMenu>
-							<SubMenu title="Mattresses">
-								<Link to="/category/mattresses">Mattresses</Link>
 							</SubMenu>
 							<SubMenu title="Storage">
 								<Link to="/category/bookshelves">Bookshelves</Link>
@@ -100,9 +96,6 @@ export default function Header() {
 							<SubMenu title="Tables">
 								<Link to="/category/dining+tables">Dining Tables</Link>
 							</SubMenu>
-							<SubMenu title="Chairs">
-								<Link to="/category/dining+chairs">Dining Chairs</Link>
-							</SubMenu>
 							<SubMenu title="Storage">
 								<Link to="/category/kitchen+cabinets">Kitchen Cabinets</Link>
 							</SubMenu>
@@ -111,7 +104,6 @@ export default function Header() {
 							<SubMenu title="Living Room">
 								<Link to="/category/bookshelves">Bookshelves</Link>
 								<Link to="/category/tv+units">TV Units</Link>
-								<Link to="/category/shoe+racks">Shoe Racks</Link>
 							</SubMenu>
 							<SubMenu title="Bedroom">
 								<Link to="/category/bookshelves">Bookshelves</Link>
