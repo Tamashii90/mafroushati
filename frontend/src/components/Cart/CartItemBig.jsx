@@ -34,7 +34,7 @@ export default function CartItemBig({ product, setProducts, setTotal }) {
 	return (
 		<div className="row py-4 py-lg-2">
 			{info.message && <MySnackBar info={info} setInfo={setInfo} />}
-			<div className="col-4 text-center text-lg-left">
+			<div className="col-5 text-center text-lg-left">
 				<img
 					className="mx-4 d-none d-lg-inline"
 					src={img_url}
