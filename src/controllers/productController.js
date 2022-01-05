@@ -22,7 +22,7 @@ exports.get_recent = async (req, res) => {
       {
         lean: true,
         sort: { "createdAt": -1 },
-        limit: 15
+        limit: 9
       }
     );
     res.send(products);
