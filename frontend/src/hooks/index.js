@@ -1,66 +1,69 @@
 import { useReducer } from "react";
 
 const ACTIONS = {
-  ADD_PRODUCT: "addProduct",
-  REMOVE_PRODUCT: "removeProduct",
-  INC_QTY: "incQty",
-  DEC_QTY: "decQty",
-  CLEAR_CART: "clearCart"
+	ADD_PRODUCT: "addProduct",
+	REMOVE_PRODUCT: "removeProduct",
+	INC_QTY: "incQty",
+	DEC_QTY: "decQty",
+	CLEAR_CART: "clearCart"
 };
 
 const reducer = (cart, action) => {
-  const newCart = { ...cart };
-  switch (action.type) {
-    case ACTIONS.ADD_PRODUCT: {
-      newCart.products.push({
-        _id: action.payload._id,
-        price_per_piece: action.payload.price_per_piece,
-        quantityInCart: 1,
-        totalPrice: action.payload.price_per_piece
-      });
-      newCart.total += action.payload.price_per_piece;
-      return newCart;
-    }
+	const newCart = { ...cart };
+	switch (action.type) {
+		case ACTIONS.ADD_PRODUCT: {
+			newCart.products.push({
+				_id: action.payload._id,
+				name: action.payload.name,
+				price_per_piece: action.payload.price_per_piece,
+				img_url: action.payload.img_url,
+				quantity_in_stock: action.payload.quantity_in_stock,
+				quantityInCart: 1,
+				totalPrice: action.payload.price_per_piece
+			});
+			newCart.total += action.payload.price_per_piece;
+			return newCart;
+		}
 
-    case ACTIONS.REMOVE_PRODUCT: {
-      newCart.products = newCart.products.filter(
-        product => product._id !== action.payload._id
-      );
-      newCart.total -= action.payload.price_per_piece;
-      return newCart;
-    }
+		case ACTIONS.REMOVE_PRODUCT: {
+			newCart.products = newCart.products.filter(
+				product => product._id !== action.payload._id
+			);
+			newCart.total -= action.payload.price_per_piece;
+			return newCart;
+		}
 
-    case ACTIONS.INC_QTY: {
-      const index = newCart.products.findIndex(
-        product => product._id === action.payload._id
-      );
-      const foundProduct = newCart.products[index];
-      foundProduct.quantityInCart++;
-      foundProduct.totalPrice += action.payload.price_per_piece;
-      newCart.total += action.payload.price_per_piece;
-      return newCart;
-    }
+		case ACTIONS.INC_QTY: {
+			const index = newCart.products.findIndex(
+				product => product._id === action.payload._id
+			);
+			const foundProduct = newCart.products[index];
+			foundProduct.quantityInCart++;
+			foundProduct.totalPrice += action.payload.price_per_piece;
+			newCart.total += action.payload.price_per_piece;
+			return newCart;
+		}
 
-    case ACTIONS.DEC_QTY: {
-      const index = newCart.products.findIndex(
-        product => product._id === action.payload._id
-      );
-      const foundProduct = newCart.products[index];
-      foundProduct.quantityInCart--;
-      foundProduct.totalPrice -= action.payload.price_per_piece;
-      newCart.total -= action.payload.price_per_piece;
-      return newCart;
-    }
+		case ACTIONS.DEC_QTY: {
+			const index = newCart.products.findIndex(
+				product => product._id === action.payload._id
+			);
+			const foundProduct = newCart.products[index];
+			foundProduct.quantityInCart--;
+			foundProduct.totalPrice -= action.payload.price_per_piece;
+			newCart.total -= action.payload.price_per_piece;
+			return newCart;
+		}
 
-    case ACTIONS.CLEAR_CART: {
-      return { "products": [], "total": 0 };
-    }
-  }
+		case ACTIONS.CLEAR_CART: {
+			return { "products": [], "total": 0 };
+		}
+	}
 };
 
 export function useCart(initialValue) {
-  const [cart, dispatch] = useReducer(reducer, initialValue);
-  return [cart, dispatch];
+	const [cart, dispatch] = useReducer(reducer, initialValue);
+	return [cart, dispatch];
 }
 
 // export function useCart(initialValue) {

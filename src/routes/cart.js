@@ -2,8 +2,8 @@ const router = require("express").Router();
 const cart_controller = require("../controllers/cartController");
 const { isNotAuth } = require("../middlewares/auth");
 
-router.post("/cart", isNotAuth("/"), cart_controller.post_cart);
+router.post("/cart/create-order", isNotAuth("/"), cart_controller.create_order);
 
-router.post("/cart/checkout", isNotAuth("/"), cart_controller.post_checkout);
+router.post("/cart/checkout/:orderID", isNotAuth("/"), cart_controller.capture_order);
 
 module.exports = router;

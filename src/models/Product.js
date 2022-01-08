@@ -87,16 +87,6 @@ const ProductSchema = new mongoose.Schema(
 ProductSchema.index({ name: "text", category: "text" }, { name: "search_index" });
 ProductSchema.index({ category: 1, price_per_piece: 1 }, { name: "get_category" });
 
-ProductSchema.statics.calcTotal = function ({ productsInCart, productsInDb }) {
-	const totalsArray = productsInCart.map(prodInCart => {
-		const matchingPrice = productsInDb.find(
-			prodInDb => String(prodInDb._id) === prodInCart._id
-		).price_per_piece;
-		return matchingPrice * prodInCart.quantityInCart;
-	});
-	return totalsArray.reduce((total, totalPerProd) => total + totalPerProd);
-};
-
 ProductSchema.pre("save", function (next) {
 	const product = this;
 	if (product.isNew) {

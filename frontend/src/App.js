@@ -17,38 +17,38 @@ import AboutBody from "./pages/AboutBody";
 import "./styles/all.scss";
 
 export default function App() {
-  const [, setAuth] = useContext(AuthContext);
-  useEffect(() => {
-    async function authenticate() {
-      try {
-        const response = await fetcher("/api/current_user");
-        setAuth(response.body);
-      } catch (err) {}
-    }
-    authenticate();
-  }, []);
-  return (
-    <>
-      <header>
-        <Helmet>
-          <title>Mafroushati</title>
-        </Helmet>
-        <Header />
-      </header>
-      <main>
-        <Switch>
-          <Route exact path="/" component={MainBody} />
-          <Route exact path="/category/:category" component={CategoryBody} />
-          <Route exact path="/products/:_id" component={ProductBody} />
-          <Route exact path="/cart" component={CartBody} />
-          <Route exact path="/login" component={LoginBody} />
-          <Route exact path="/register" component={RegisterBody} />
-          <Route exact path="/search" component={SearchBody} />
-          <Route exact path="/contact_us" component={ContactBody} />
-          <Route exact path="/about" component={AboutBody} />
-        </Switch>
-      </main>
-      <Footer />
-    </>
-  );
+	const [, setAuth] = useContext(AuthContext);
+	useEffect(() => {
+		async function authenticate() {
+			try {
+				const response = await fetcher("/api/current_user");
+				setAuth(response.body);
+			} catch (err) {}
+		}
+		authenticate();
+	}, []);
+	return (
+		<>
+			<header>
+				<Helmet>
+					<title>Mafroushati</title>
+				</Helmet>
+				<Header />
+			</header>
+			<main>
+				<Switch>
+					<Route exact path="/" component={MainBody} />
+					<Route exact path="/category/:category" component={CategoryBody} />
+					<Route exact path="/products/:_id" component={ProductBody} />
+					<Route exact path="/cart" component={CartBody} />
+					<Route exact path="/login" component={LoginBody} />
+					<Route exact path="/register" component={RegisterBody} />
+					<Route exact path="/search" component={SearchBody} />
+					<Route exact path="/contact_us" component={ContactBody} />
+					<Route exact path="/about" component={AboutBody} />
+				</Switch>
+			</main>
+			<Footer />
+		</>
+	);
 }

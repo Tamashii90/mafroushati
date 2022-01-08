@@ -29,10 +29,10 @@
 	"/api/register": {
 		"target": "http://localhost:3000"
 	},
-	"/api/cart": {
+	"/api/cart/create-order": {
 		"target": "http://localhost:3000"
 	},
-	"/api/cart/checkout": {
+	"/api/cart/checkout/*": {
 		"target": "http://localhost:3000"
 	},
 	"/api/search": {
