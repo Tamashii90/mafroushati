@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { fetcher } from "../../utils";
 import { mutate } from "swr";
-import InfoContext from "../../context/InfoContext";
+import { toast } from "react-toastify";
 
 export default function WriteReview({ prodId }) {
 	const [loading, setLoading] = useState(false);
-	const [, setInfo] = useContext(InfoContext);
+
 	const submitReview = async e => {
 		e.preventDefault();
 		setLoading(true);
@@ -21,7 +21,7 @@ export default function WriteReview({ prodId }) {
 			e.target.reset();
 		} catch (err) {
 			setLoading(false);
-			setInfo({ message: err.message, severity: "error" });
+			toast.erorr(err.message);
 		}
 	};
 	return (

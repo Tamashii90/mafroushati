@@ -14,10 +14,15 @@ import RegisterBody from "./pages/RegisterBody";
 import SearchBody from "./pages/SearchBody";
 import ContactBody from "./pages/ContactBody";
 import AboutBody from "./pages/AboutBody";
+import { ToastContainer, cssTransition } from "react-toastify";
 import "./styles/all.scss";
 
 export default function App() {
 	const [, setAuth] = useContext(AuthContext);
+	const myAnime = cssTransition({
+		enter: "myAnimeIn",
+		exit: "myAnimeOut"
+	});
 	useEffect(() => {
 		async function authenticate() {
 			try {
@@ -34,6 +39,17 @@ export default function App() {
 					<title>Mafroushati</title>
 				</Helmet>
 				<Header />
+				<ToastContainer
+					position="top-center"
+					theme="colored"
+					transition={myAnime}
+					autoClose={3000}
+					hideProgressBar
+					newestOnTop={false}
+					rtl={false}
+					pauseOnHover
+					closeButton={false}
+				/>
 			</header>
 			<main>
 				<Switch>

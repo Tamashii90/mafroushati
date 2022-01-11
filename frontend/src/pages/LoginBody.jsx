@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import { Link, useHistory, Redirect } from "react-router-dom";
 import { fetcher } from "../utils";
-import InfoContext from "../context/InfoContext";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
 	const history = useHistory();
 	const [loading, setLoading] = useState(false);
-	const [, setInfo] = useContext(InfoContext);
+
 	const [auth, setAuth] = useContext(AuthContext);
 	const login = async e => {
 		e.preventDefault();
@@ -22,7 +22,7 @@ export default function LoginPage() {
 			history.replace("/");
 		} catch (err) {
 			setLoading(false);
-			setInfo({ message: err.message, severity: "error" });
+			toast.error(err.message);
 		}
 	};
 	return (

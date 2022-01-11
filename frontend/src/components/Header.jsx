@@ -5,8 +5,7 @@ import SubMenu from "./SubMenu";
 import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import CartContext from "../context/CartContext";
-import InfoContext from "../context/InfoContext";
-import MySnackbar from "./MySnackbar";
+import { toast } from "react-toastify";
 import { fetcher } from "../utils";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { RiLogoutCircleRLine } from "react-icons/ri";
@@ -14,7 +13,7 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 export default function Header() {
 	const history = useHistory();
 	const [cart] = useContext(CartContext);
-	const [info, setInfo] = useContext(InfoContext);
+
 	const [auth, setAuth] = useContext(AuthContext);
 	const [collapse, setCollapse] = useState(true);
 	const [loading, setLoading] = useState(false);
@@ -24,9 +23,9 @@ export default function Header() {
 			const response = await fetcher("/api/logout", { method: "POST" });
 			setAuth(null);
 			history.replace("/");
-			setInfo({ message: response.message, severity: "success" });
+			toast.success(response.message);
 		} catch (err) {
-			setInfo({ message: err.message, severity: "error" });
+			toast.error(err.message);
 		}
 		setLoading(false);
 	};
@@ -44,7 +43,6 @@ export default function Header() {
 	}, [useLocation()]);
 	return (
 		<>
-			{info.message && <MySnackbar info={info} setInfo={setInfo} />}
 			<nav className="navbar navbar-expand-xl navbar-light pb-5 pb-xl-3">
 				<div className="navbar-start my-3">
 					<Link className="navbar-brand mr-0" to="/">
@@ -63,10 +61,7 @@ export default function Header() {
 						<span className="navbar-toggler-icon"></span>
 					</button>
 				</div>
-				<div
-					className={(collapse ? "collapse" : "") + " navbar-collapse ml-xl-5"}
-					id="navbarNav"
-				>
+				<div className={(collapse ? "collapse" : "") + " navbar-collapse ml-xl-5"} id="navbarNav">
 					<ul className="navbar-nav">
 						<DropMenu title="Living Room">
 							<SubMenu title="Sofa">

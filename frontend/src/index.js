@@ -5,7 +5,6 @@ import { BrowserRouter } from "react-router-dom";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { AuthContextProvider } from "./context/AuthContext";
 import { CartContextProvider } from "./context/CartContext";
-import { InfoContextProvider } from "./context/InfoContext";
 import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.render(
@@ -19,9 +18,7 @@ ReactDOM.render(
 				}}
 			>
 				<CartContextProvider>
-					<InfoContextProvider>
-						<App />
-					</InfoContextProvider>
+					<App />
 				</CartContextProvider>
 			</PayPalScriptProvider>
 		</AuthContextProvider>

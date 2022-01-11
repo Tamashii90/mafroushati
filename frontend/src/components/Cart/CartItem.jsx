@@ -1,17 +1,16 @@
 import React, { useContext, useState } from "react";
 import CartContext from "../../context/CartContext";
-import MySnackBar from "../MySnackbar";
 import { AiFillPlusSquare, AiFillMinusSquare } from "react-icons/ai";
 
 function CartItem({ product, setProducts, setTotal }) {
 	const { _id, name, img_url, price_per_piece, quantity_in_stock, quantityInCart } = product;
-	const [info, setInfo] = useState({ message: "", severity: "info" });
+
 	const [cart, dispatch] = useContext(CartContext);
 	const totalPrice = price_per_piece * quantityInCart;
 
 	const incQty = () => {
 		if (quantity_in_stock < quantityInCart + 1) {
-			return setInfo({ message: "Out of Stock!", severity: "error" });
+			return toast.error("Out of Stock!");
 		}
 		dispatch({ type: "incQty", payload: { _id, price_per_piece } });
 	};
@@ -29,7 +28,6 @@ function CartItem({ product, setProducts, setTotal }) {
 
 	return (
 		<div className="col-12 row align-items-baseline py-4 py-lg-2">
-			{info.message && <MySnackBar info={info} setInfo={setInfo} />}
 			<div className="col text-center d-none d-lg-block">
 				<img width="75" height="75" src={img_url} alt={name} />
 			</div>

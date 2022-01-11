@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useHistory } from "react-router-dom";
-import InfoContext from "../../context/InfoContext";
+import { toast } from "react-toastify";
 import CartContext from "../../context/CartContext";
 import { fetcher } from "../../utils";
 
 export default function PayPalBtn({ listOfProds }) {
 	const [, dispatch] = useContext(CartContext);
-	const [, setInfo] = useContext(InfoContext);
+
 	const history = useHistory();
 	// I have to do it like this because I need it inside PayPal button, and
 	// I can't make it re-render when listOfProds changes (because of the iframe)
@@ -25,10 +25,7 @@ export default function PayPalBtn({ listOfProds }) {
 				return res.orderID;
 			}
 		} catch (err) {
-			setInfo({
-				message: err.message,
-				severity: "error"
-			});
+			toast.erorr(err.message);
 		}
 	}
 
@@ -41,15 +38,11 @@ export default function PayPalBtn({ listOfProds }) {
 			// some delay to wait for PayPal's overlay to close
 			setTimeout(() => {
 				dispatch({ type: "clearCart" });
-				setInfo({
-					message: "Thanks for Shopping at Mafroushati!",
-					severity: "success",
-					delay: 2500
-				});
+				toast.success("Thanks for Shopping at Mafroushati !", { autoClose: 2500 });
 				history.replace("/");
 			}, 1000);
 		} catch (err) {
-			setInfo({ message: err.message, severity: "error" });
+			toast.error(err.message);
 		}
 		// const orderData = await res.json();
 		// // Three cases to handle:

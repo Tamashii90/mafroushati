@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import CartContext from "../context/CartContext";
 import AuthContext from "../context/AuthContext";
-import InfoContext from "../context/InfoContext";
+import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
 import CartItem from "../components/Cart/CartItem";
 import PayPalBtn from "../components/Cart/PayPalBtn";
 
 function CartBody() {
 	const [cart] = useContext(CartContext);
-	const [, setInfo] = useContext(InfoContext);
+
 	const [auth] = useContext(AuthContext);
 	const { products } = cart;
 	const { total } = cart;
@@ -18,7 +18,7 @@ function CartBody() {
 	}));
 
 	if (!auth) {
-		setInfo({ message: "Please Log in or Register First.", severity: "info" });
+		toast.info(" Please Log in or Register First.");
 		return <Redirect to="/login" />;
 	}
 

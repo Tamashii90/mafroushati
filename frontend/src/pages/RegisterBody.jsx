@@ -19,7 +19,7 @@ export default function RegisterPage() {
 			setAuth(response.body);
 		} catch (err) {
 			if (err.body) setError(err.body);
-			else setInfo({ message: err.message, severity: "error" });
+			else toast.error(err.message);
 		}
 		setLoading(false);
 	};
