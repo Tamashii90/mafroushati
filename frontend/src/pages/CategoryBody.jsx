@@ -6,7 +6,9 @@ import Helmet from "react-helmet";
 import useSWR from "swr";
 import Placeholder from "../components/Placeholder/ProductGallery";
 import Slider from "../components/Slider";
+import SliderPlaceholder from "../components/Placeholder/Slider";
 import Pager from "../components/Pager";
+import { toast } from "react-toastify";
 
 export default function CategoryPage() {
 	const { pathname } = useLocation();
@@ -52,15 +54,23 @@ export default function CategoryPage() {
 			</Helmet>
 			<h1 className="text-center">{categoryName}</h1>
 			<div className="row justify-content-center justify-content-md-start">
-				<Slider
-					className="col-10 mx-auto"
-					onChangeCommitted={filterByPrice}
-					minPrice={price.min}
-					maxPrice={price.max}
-					valueLabelDisplay="auto"
-				/>
-				{!products && <Placeholder />}
-				{products && <ProductGallery products={products} />}
+				{products ? (
+					<>
+						<Slider
+							className="col-10 mx-auto"
+							onChangeCommitted={filterByPrice}
+							minPrice={price.min}
+							maxPrice={price.max}
+							valueLabelDisplay="auto"
+						/>
+						<ProductGallery products={products} />
+					</>
+				) : (
+					<>
+						<SliderPlaceholder />
+						<Placeholder />
+					</>
+				)}
 				{!!products?.length && (
 					<Pager
 						pages={Math.ceil(count / prodPerPage)}
