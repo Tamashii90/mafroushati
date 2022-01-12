@@ -310,6 +310,10 @@ footer {
 	}
 }
 
+.MuiPaginationItem-textPrimary.Mui-selected {
+	background-color: var(--primary) !important;
+}
+
 .Toastify__toast-theme--colored {
 	font-family: "Merriweather", serif !important;
 	font-weight: 500;

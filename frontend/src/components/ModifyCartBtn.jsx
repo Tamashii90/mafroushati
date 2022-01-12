@@ -12,7 +12,7 @@ export default function ModifyCartBtn({ product, add, dispatch }) {
 	};
 	const removeProduct = () => {
 		dispatch({ type: "removeProduct", payload: { _id, price_per_piece } });
-		toast.success("Removed from Cart", { autoClose: 1000 });
+		toast.success("Removed from Cart.", { autoClose: 1000 });
 	};
 	return (
 		<>
