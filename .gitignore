@@ -4,5 +4,3 @@ dist
 .parcel-cache
 .env
 .eslintrc.json
-public
-!public/images

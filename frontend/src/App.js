@@ -16,6 +16,7 @@ import ContactBody from "./pages/ContactBody";
 import AboutBody from "./pages/AboutBody";
 import { ToastContainer, cssTransition } from "react-toastify";
 import "./styles/all.scss";
+import LoadingScreen from "./components/LoadingScreen";
 
 export default function App() {
 	const [, setAuth] = useContext(AuthContext);
@@ -24,13 +25,19 @@ export default function App() {
 		exit: "myAnimeOut"
 	});
 	useEffect(() => {
-		async function authenticate() {
+		const loadingScreen = document.getElementById("loading-screen");
+		document.fonts.ready.then(() => {
+			document.body.classList.remove("overflow-hidden");
+			loadingScreen.style.opacity = "0";
+			loadingScreen.style.visibility = "hidden";
+		});
+
+		(async function authenticate() {
 			try {
 				const response = await fetcher("/api/current_user");
 				setAuth(response.body);
 			} catch (err) {}
-		}
-		authenticate();
+		})();
 	}, []);
 	return (
 		<>
@@ -39,6 +46,7 @@ export default function App() {
 					<title>Mafroushati</title>
 				</Helmet>
 				<Header />
+				<LoadingScreen />
 				<ToastContainer
 					position="top-center"
 					theme="colored"

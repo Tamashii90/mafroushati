@@ -38,7 +38,7 @@
 	"/api/search": {
 		"target": "http://localhost:3000"
 	},
-	"/images/logo.png": {
+	"/images/*": {
 		"target": "http://localhost:3000"
 	}
 }
