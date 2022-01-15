@@ -32,11 +32,8 @@ export default function CategoryPage() {
 	const products = data?.products;
 	if (products?.length && !price.min) {
 		// only update the price and count once (when initial value is null)
-		const sortedProds = [...products].sort((a, b) => a.price_per_piece - b.price_per_piece);
-		const minPrice = sortedProds[0].price_per_piece;
-		const maxPrice = sortedProds[sortedProds.length - 1].price_per_piece;
 		setCount(data.count);
-		setPrice({ min: minPrice, max: maxPrice });
+		setPrice({ min: data.min, max: data.max });
 	}
 	const filterByPrice = (e, value) => {
 		setFilter({ min: value[0], max: value[1] });
