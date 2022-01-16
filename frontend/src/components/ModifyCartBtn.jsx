@@ -18,11 +18,11 @@ export default function ModifyCartBtn({ product, add, dispatch }) {
 		<>
 			{add ? (
 				<button className="btn-primary btn" onClick={addProduct} disabled={!quantity_in_stock}>
-					Add To Cart
+					Add to Cart
 				</button>
 			) : (
 				<button className="btn-primary btn" onClick={removeProduct}>
-					Remove From Cart
+					Remove from Cart
 				</button>
 			)}
 		</>

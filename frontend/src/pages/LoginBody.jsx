@@ -31,7 +31,7 @@ export default function LoginPage() {
 				<Redirect to="/" />
 			) : (
 				<div className="form-container container mb-5">
-					<h2 className="text-center">Log In to Your Account</h2>
+					<h2 className="text-center">Log in to Your Account</h2>
 					<form onSubmit={login}>
 						<div className="form-group">
 							<label htmlFor="username">Username</label>

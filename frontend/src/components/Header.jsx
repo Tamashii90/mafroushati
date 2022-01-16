@@ -23,7 +23,7 @@ export default function Header() {
 			const response = await fetcher("/api/logout", { method: "POST" });
 			setAuth(null);
 			history.replace("/");
-			toast.success(response.message);
+			toast.success("Logged Out Successfully.");
 		} catch (err) {
 			toast.error(err.message);
 		}
