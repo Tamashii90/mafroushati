@@ -136,7 +136,7 @@ function makeOrder({ total, prodsPairing }) {
 			}
 		],
 		application_context: {
-			shipping_preference: "NO_SHIPPING",
+			shipping_preference: "GET_FROM_FILE",
 			user_action: "PAY_NOW",
 			brand_name: "Mafroushati"
 		}
