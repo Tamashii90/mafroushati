@@ -209,8 +209,9 @@ svg[color="#00ff84"]:hover {
 
 h1.text-center {
 	position: relative;
+	font-weight: bold;
 	color: $primary;
-	text-shadow: 0 0 1px black, 0 0 1px black;
+	text-shadow: 0 0 4px $primary, 0 0 1px $primary;
 	margin-bottom: 1rem;
 }
 

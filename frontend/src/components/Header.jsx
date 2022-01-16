@@ -46,7 +46,7 @@ export default function Header() {
 			<nav className="navbar navbar-expand-xl navbar-light pb-5 pb-xl-3">
 				<div className="navbar-start my-3">
 					<Link className="navbar-brand mr-0" to="/">
-						<img src="/images/logo.png" alt="Mafroushati" />
+						<img src="/images/logo.svg" alt="Mafroushati" style={{ height: "89px" }} />
 					</Link>
 					<button
 						className="navbar-toggler"
