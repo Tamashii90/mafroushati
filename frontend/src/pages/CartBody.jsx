@@ -19,7 +19,7 @@ function CartBody() {
 
 	if (!auth) {
 		toast.info(" Please Log in or Register First.");
-		return <Redirect to="/login" />;
+		return <Redirect to="/login?redr=/cart" />;
 	}
 
 	if (!cart.products.length) {

@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
-import { Link, useHistory, Redirect } from "react-router-dom";
+import { Link, useHistory, Redirect, useLocation } from "react-router-dom";
 import { fetcher } from "../utils";
 import { toast } from "react-toastify";
 
 export default function LoginPage() {
+	const { search } = useLocation();
+	const redirect = new URLSearchParams(search).get("redr");
 	const history = useHistory();
 	const [loading, setLoading] = useState(false);
 
@@ -19,7 +21,7 @@ export default function LoginPage() {
 				body: new URLSearchParams(form) // otherwise enctype would be multipart/formdata
 			});
 			setAuth(response.body);
-			history.replace("/");
+			history.replace(redirect || "/");
 		} catch (err) {
 			setLoading(false);
 			toast.error(err.message);
