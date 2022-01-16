@@ -14,6 +14,7 @@ import RegisterBody from "./pages/RegisterBody";
 import SearchBody from "./pages/SearchBody";
 import ContactBody from "./pages/ContactBody";
 import AboutBody from "./pages/AboutBody";
+import PageNotFound from "./pages/PageNotFound";
 import { ToastContainer, cssTransition } from "react-toastify";
 import "./styles/all.scss";
 import LoadingScreen from "./components/LoadingScreen";
@@ -70,6 +71,7 @@ export default function App() {
 					<Route exact path="/search" component={SearchBody} />
 					<Route exact path="/contact_us" component={ContactBody} />
 					<Route exact path="/about" component={AboutBody} />
+					<Route component={PageNotFound} />
 				</Switch>
 			</main>
 			<Footer />
