@@ -21,7 +21,7 @@ export default function WriteReview({ prodId }) {
 			e.target.reset();
 		} catch (err) {
 			setLoading(false);
-			toast.erorr(err.message);
+			toast.error(err.message);
 		}
 	};
 	return (

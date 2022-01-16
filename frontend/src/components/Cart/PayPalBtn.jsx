@@ -25,7 +25,7 @@ export default function PayPalBtn({ listOfProds }) {
 				return res.orderID;
 			}
 		} catch (err) {
-			toast.erorr(err.message);
+			toast.error(err.message);
 		}
 	}
 
