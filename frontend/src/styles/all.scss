@@ -209,19 +209,9 @@ svg[color="#00ff84"]:hover {
 
 h1.text-center {
 	position: relative;
-	color: black;
-	text-shadow: 4px 4px 6px #007bff;
+	color: $primary;
+	text-shadow: 0 0 1px black, 0 0 1px black;
 	margin-bottom: 1rem;
-	// &::after {
-	//   content: "";
-	//   width: 90px;
-	//   height: 55px;
-	//   display: inline-block;
-	//   border-bottom: 2px solid #007bff;
-	//   position: absolute;
-	//   left: 50%;
-	//   transform: translateX(-50%);
-	// }
 }
 
 p.filler {
