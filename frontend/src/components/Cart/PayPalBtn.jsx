@@ -21,9 +21,7 @@ export default function PayPalBtn({ listOfProds }) {
 				body: JSON.stringify({ listOfProds }),
 				headers: { "Content-Type": "application/json" }
 			});
-			if (!res.error) {
-				return res.orderID;
-			}
+			return res.orderID;
 		} catch (err) {
 			toast.error(err.message);
 		}
@@ -31,10 +29,7 @@ export default function PayPalBtn({ listOfProds }) {
 
 	async function captureOrder(data, actions) {
 		try {
-			const res = await fetch(`/api/cart/checkout/${data.orderID}`, { method: "post" });
-			if (!res.ok) {
-				throw new Error("Server error..");
-			}
+			const res = await fetcher(`/api/cart/checkout/${data.orderID}`, { method: "post" });
 			// some delay to wait for PayPal's overlay to close
 			setTimeout(() => {
 				dispatch({ type: "clearCart" });
