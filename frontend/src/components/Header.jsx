@@ -23,8 +23,8 @@ export default function Header() {
 		setLoading(true);
 		try {
 			const response = await fetcher("/api/logout", { method: "POST" });
+			history.push("/");
 			setAuth(null);
-			history.replace("/");
 			toast.success("Logged Out Successfully.");
 		} catch (err) {
 			toast.error(err.message);
@@ -36,7 +36,7 @@ export default function Header() {
 		const form = new FormData(e.target);
 		const q = form.get("q");
 		if (!q) return;
-		history.replace(`/search?q=${q}`);
+		history.push(`/search?q=${q}`);
 		e.target.reset();
 	};
 
