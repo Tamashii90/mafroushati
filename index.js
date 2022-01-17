@@ -9,6 +9,7 @@ const userRouter = require("./src/routes/user");
 const productRouter = require("./src/routes/product");
 const cartRouter = require("./src/routes/cart");
 const reviewRouter = require("./src/routes/review");
+const feedbackRouter = require("./src/routes/feedback");
 const { isNotAdmin } = require("./src/middlewares/auth");
 
 app.set("view engine", "hbs");
@@ -26,6 +27,7 @@ app.use("/api/", userRouter);
 app.use("/api/", productRouter);
 app.use("/api/", cartRouter);
 app.use("/api/", reviewRouter);
+app.use("/api/", feedbackRouter);
 
 app.get("/admin", isNotAdmin("/"), (req, res) => {
 	const errors = req.flash("error")[0];
