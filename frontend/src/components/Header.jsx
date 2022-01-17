@@ -17,6 +17,8 @@ export default function Header() {
 	const [auth, setAuth] = useContext(AuthContext);
 	const [collapse, setCollapse] = useState(true);
 	const [loading, setLoading] = useState(false);
+	const imageUrl = new URL("/assets/logo.svg", import.meta.url);
+
 	const logOut = async () => {
 		setLoading(true);
 		try {
@@ -46,7 +48,7 @@ export default function Header() {
 			<nav className="navbar navbar-expand-xl navbar-light pb-5 pb-xl-3">
 				<div className="navbar-start my-3">
 					<Link className="navbar-brand mr-0" to="/">
-						<img src="/images/logo.svg" alt="Mafroushati" style={{ height: "89px" }} />
+						<img src={imageUrl} alt="Mafroushati" style={{ height: "90px" }} />
 					</Link>
 					<button
 						className="navbar-toggler"
