@@ -110,9 +110,14 @@ export default function Header() {
 								<Link to="/category/kitchen+cabinets">Kitchen Cabinets</Link>
 							</SubMenu>
 						</DropMenu>
-						<li className="nav-item">
+						<li className="nav-item mb-3 mb-xl-0">
 							<Link className="nav-link" to="/contact_us">
 								Contact Us
+							</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="/about">
+								About
 							</Link>
 						</li>
 					</ul>
