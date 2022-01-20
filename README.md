@@ -1,6 +1,6 @@
 <div align="center">
     <h1>Mafroushati</h1>
-    <img alt="img" src="https://i.imgur.com/WUlWkyN.png" />
+    <img alt="img" src="https://i.imgur.com/hLIeIjz.png" />
     <h5>Mafroushati isn't a real company. This website was built purely for educational purposes.</h5>
 </div>
 
