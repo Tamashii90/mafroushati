@@ -1,8 +1,8 @@
 const fetch = require("node-fetch");
+const FormData = require("form-data");
 
 module.exports = async image => {
   if (!image) return;
-  const FormData = require("form-data");
   const data = new FormData();
   data.append("type", "base64");
   data.append("image", image.buffer.toString("base64"));
