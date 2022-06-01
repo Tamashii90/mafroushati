@@ -13,6 +13,11 @@
 - Uses Imgur's API to handle image storage.
 - Uses [SWR](https://swr.vercel.app/) for a smoother experience.
 
+## Backend
+
+- #### API Docs: https://documenter.getpostman.com/view/17572205/Uz5FJGnT
+
+
 ## Typical Workflow
 
 - [Customer](#customer)
