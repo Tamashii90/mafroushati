@@ -120,6 +120,7 @@ exports.post_product = async (req, res) => {
 			// because it's handled by handlebars using req.flash()
 			return res.status(400).send(err.errors);
 		}
+		console.log(err);
 		res.status(500).send({ error: true, message: "Server error." });
 	}
 };
