@@ -5,7 +5,7 @@ const { isNotAuth, isNotAdmin } = require("../middlewares/auth");
 
 router.post(
   "/products",
-  isNotAuth("/", "Unauthorized"),
+  isNotAdmin("/"),
   upload.single("img_url"),
   product_controller.post_product
 );
