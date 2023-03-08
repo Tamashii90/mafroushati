@@ -1,4 +1,4 @@
-const mongooseConnection = require("./src/db/mongoose");
+const mongoose = require("mongoose");
 const compression = require("compression");
 const express = require("express");
 const app = express();
@@ -19,7 +19,7 @@ app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(`${__dirname}/src/public`));
-app.use(sessionMiddleware(mongooseConnection));
+app.use(sessionMiddleware(mongoose.connection));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -39,4 +39,16 @@ app.all("*", (req, res) => {
 	res.sendFile("./src/public/index.html", { root: __dirname });
 });
 
-app.listen(process.env.PORT, () => console.log("Listening on port", process.env.PORT));
+// Eliminate chance of receiving request before DB is ready
+mongoose
+	.connect(process.env.DB_URI, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useCreateIndex: true
+	})
+	.then(() => {
+		console.log("Connected to database.");
+		app.listen(process.env.PORT, () => {
+			console.log("Listening on port", process.env.PORT);
+		});
+	});
